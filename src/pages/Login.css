@@ -1,0 +1,201 @@
+ion-content {
+    --background: #061D42;
+}
+
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Partículas brilhantes */
+.particula {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #4DA8FF;
+    box-shadow: 0 0 10px rgba(77, 168, 255, 0.8);
+    animation: brilho 4s infinite ease-in-out;
+    z-index: 1;
+}
+
+.p1 { top: 15%; left: 10%; animation-delay: 0s; }
+.p2 { top: 25%; left: 80%; animation-delay: 1s; }
+.p3 { top: 70%; left: 15%; animation-delay: 2s; }
+.p4 { top: 80%; left: 75%; animation-delay: 3s; }
+.p5 { top: 40%; left: 50%; animation-delay: 1.5s; }
+.p6 { top: 10%; left: 60%; animation-delay: 2.5s; }
+.p7 { top: 55%; left: 90%; animation-delay: 0.8s; }
+.p8 { top: 85%; left: 40%; animation-delay: 3.5s; }
+.p9 { top: 35%; left: 25%; animation-delay: 1.2s; }
+.p10 { top: 60%; left: 65%; animation-delay: 2.2s; }
+
+@keyframes brilho {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(2); }
+}
+
+/* --- Estilos da Janela de Login --- */
+.login-container {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    width: 100%;
+    max-width: 380px;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ffffff;
+}
+
+.logo-app {
+    width: 100px;
+    height: auto;
+    margin: 0 auto 24px auto;
+    display: block;
+    object-fit: contain;
+}
+
+h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #d1d5db;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+/* --- Mágica dos Inputs Animados Flutuantes --- */
+.input-group-animated {
+    position: relative;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.input-group-animated input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: #ffffff;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #000000;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Quando o input ganha foco, cria uma borda amarela elegante */
+.input-group-animated input:focus {
+    border-color: #FBC84A;
+}
+
+
+.input-group-animated label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: #061D42;
+    font-size: 15px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease; /* Cria o deslize suave */
+}
+
+/* Quando clicar (focus) OU tiver texto digitado (not :placeholder-shown) -> O texto SOBE e fica branco */
+.input-group-animated input:focus ~ label,
+.input-group-animated input:not(:placeholder-shown) ~ label {
+    top: -18px; 
+    left: 8px;
+    transform: translateY(0) scale(0.85);
+    color: #ffffff; 
+    font-weight: 600;
+}
+
+.forgot-password {
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: #FBC84A;
+    text-decoration: none;
+    margin-top: -12px;
+    margin-bottom: 24px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #FBC84A;
+    color: #061D42;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #e5b43b;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #9ca3af;
+    font-size: 12px;
+    margin-bottom: 24px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #d6aa3b;
+}
+
+.divider:not(:empty)::before { margin-right: .5em; }
+.divider:not(:empty)::after { margin-left: .5em; }
+
+.btn-google {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.google-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+.footer-link {
+    font-size: 12px;
+    color: #FBC84A;
+    text-decoration: none;
+    display: inline-block;
+}
+    
