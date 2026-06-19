@@ -1,0 +1,7 @@
+{
+  "name": "app-bit",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
