@@ -1,7 +1,14 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import PublicarVaga from './pages/PublicarVaga';
+import Resultados from './pages/Resultados';
+import Insights from './pages/Insights';
+import Perfil from './pages/Perfil';
+import Suporte from './pages/Suporte';
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -32,6 +39,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Home from './pages/Home';
 
 setupIonicReact();
 
@@ -39,11 +47,36 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
+        <Route exact path="/login">
+          <Login />
         </Route>
+
+        <Route exact path="/dashboard">
+          <Dashboard />
+        </Route>
+
+        <Route exact path="/publicar-vaga">
+          <PublicarVaga />
+        </Route>
+
+        <Route exact path="/resultados">
+          <Resultados />
+        </Route>
+
+        <Route exact path="/insights">
+          <Insights />
+        </Route>
+
+        <Route exact path="/perfil">
+          <Perfil />
+        </Route>
+
+        <Route exact path="/suporte">
+          <Suporte />
+        </Route>
+
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/login" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
