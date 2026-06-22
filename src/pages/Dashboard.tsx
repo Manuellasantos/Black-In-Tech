@@ -1,18 +1,12 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import Layout from "../components/Layout";
 
-const Dashboard: React.FC = () => {
+const Dashboard = () => {
     return(
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Dashboard</IonTitle>
-                </IonToolbar>
-            </IonHeader>
+        <Layout titulo="Dashboard">
 
-            <IonContent fullscreen>
-                Dashboard
-            </IonContent>
-        </IonPage>
+            <h2>Dashboard funcionando!</h2>
+
+        </Layout>
     );
 };
 

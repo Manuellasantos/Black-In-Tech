@@ -1,2 +1,6 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+:root {
+    --primary-color: #171A23;
+    --second-color: #FBC84A;
+    --background-color: #EDF1F2;
+    --card-color: #ffffff;
+}
