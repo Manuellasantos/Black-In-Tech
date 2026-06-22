@@ -1,3 +1,4 @@
+import "./Layout.css";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 
@@ -8,15 +9,15 @@ interface LayoutProps {
 
 const Layout = ({ titulo, children }: LayoutProps) => {
     return (
-        <div>
+        <div className="layout">
 
             <Sidebar />
 
-            <div>
+            <div className="layout-content">
 
                 <Header titulo={titulo} />
 
-                <main>
+                <main className="main-content">
                     {children}
                 </main>
 

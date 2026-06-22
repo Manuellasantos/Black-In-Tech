@@ -1,3 +1,4 @@
+import "./Header.css";
 
 interface HeaderProps {
     titulo: string;
@@ -5,9 +6,9 @@ interface HeaderProps {
 
 const Header = ({ titulo }: HeaderProps) => {
     return (
-        <div>
+        <header className="header">
             <h1>{titulo}</h1>
-        </div>
+        </header>
     );
 };
 
