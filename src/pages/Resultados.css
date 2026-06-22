@@ -1,0 +1,252 @@
+.main-layout {
+    display: flex;
+    background-color: #f8fafc;
+    min-height: 100vh;
+}
+
+.resultados-content {
+    --background: #f8fafc;
+    margin-left: 260px;
+    width: calc(100% - 260px);
+}
+
+.resultados-container {
+    padding: 40px;
+    font-family: 'Inter', sans-serif;
+}
+
+.titulo-resultados {
+    color: #061D42;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+}
+
+.contador-candidatos {
+    color: #64748b;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+
+.filtros-panel {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.filtro-info-vaga {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 40px;
+    color: #334155;
+    font-size: 14px;
+}
+
+.select-custom {
+    padding: 10px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.filtros-rapidos-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.btn-filter-selector {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.btn-filter-main {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    margin-left: auto; /* Empurra para o canto direito */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/* Grid de Cards */
+.candidatos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+/* Estilo do Card individual */
+.candidato-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-destaque {
+    border: 2px solid #FBC84A; /* Borda Dourada Oficial no Destaque */
+}
+
+.badge-destaque {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #fef3c7;
+    color: #b45309;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+
+.avatar-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.card-top-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.candidato-detalhes h3 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    color: #061D42;
+    font-weight: 700;
+}
+
+.cargo-text {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.compatibilidade-badge {
+    margin-left: auto;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.compatibilidade-badge .porcentagem {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.compatibilidade-badge .status-text {
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.skills-section {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 14px;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.diversidade-tag {
+    margin: 0 0 6px 0;
+    font-size: 13px;
+    color: #059669;
+    font-weight: 500;
+}
+
+.skills-tags {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Botões de Ação do Card */
+.card-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.btn-ver-perfil {
+    background-color: #FBC84A; 
+    color: #061D42; 
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-ver-perfil:hover {
+    background-color: #e5b43b;
+}
+
+.btn-contato {
+    background-color: #061D42; 
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    color: #FFFFFF; 
+}
+
+.btn-contato:hover {
+    background-color: #0c2b5c;
+}
+
+.btn-contato svg {
+    stroke: currentColor;
+    fill: currentColor;
+}

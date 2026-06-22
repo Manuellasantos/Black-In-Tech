@@ -1,31 +1,101 @@
+:root {
+    --sidebar-bg: #171A23;           
+    --active-bg: rgba(255, 255, 255, 0.08); 
+    --highlight-color: #ffb800;      
+    --text-color-inactive: #cbd5e1;  
+}
+
 .sidebar {
     width: 280px;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 24px;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    color: #ffffff;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, sans-serif;
 }
+
+.sidebar-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    margin-bottom: 32px;
+    width: 100%;
+}
+
+.app-logo {
+    width: 60px;           
+    height: auto;
+    margin-bottom: 8px;     
+}
+
+.sidebar-logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;   
+}
+
 .sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
+    height: 100%;
 }
-.sidebar-nav a {
-    color: white;
-    font-size: 22px;
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 8px;
-    transition: 0.2s;
 
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+.sidebar-nav a {
+    color: var(--text-color-inactive); 
+    font-size: 18px;
+    text-decoration: none;
+    padding: 14px 16px;
+    border-radius: 0 16px 16px 0; /* Cantos arredondados apenas à direita */
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap:12px;
+    gap: 16px;
+    position: relative;
 }
+
+/* Os ícones herdam automaticamente a cor do texto do link (currentColor) */
+.sidebar-icon {
+    font-size: 24px; 
+    flex-shrink: 0;
+}
+
+/* Efeito de Hover */
 .sidebar-nav a:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.04);
+    color: white;
 }
-.sidebar-nav img {
-    width: 38px;
-    height: 38px;
+
+
+.sidebar-nav a.active {
+    background-color: var(--active-bg);
+    color: var(--highlight-color); /* Muda texto e ícone para amarelo ao mesmo tempo */
+    font-weight: 500;
+}
+
+
+.sidebar-nav a.active::before {
+    content: "";
+    position: absolute;
+    left: -16px;
+    top: 15%;
+    height: 70%;
+    width: 4px;
+    background-color: var(--highlight-color);
+    border-radius: 0 4px 4px 0;
+}
+
+.sidebar-divider {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 32px 12px;
 }
