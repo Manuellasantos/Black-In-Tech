@@ -1,0 +1,261 @@
+.insights-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.card-esg {
+    height: 160px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 24px;
+    align-items: center;
+    color: white;
+    padding: 16px;
+}
+
+.card-esg h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.card-esg p {
+    margin-top: 0;
+    margin-bottom: 6px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card-esg span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    /* text-align: center; */
+    opacity: 0.9;
+}
+
+.positivo {
+    color: #22c55e;
+}
+
+.negativo {
+    color: #ef4444;
+}
+
+/* Estrutura principal da página */
+
+.insights-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 24px;
+
+    margin-bottom: 24px;
+
+}
+
+.insights-left,
+.insights-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Cards Gerais */
+
+.insight-card {
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 24px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+}
+
+.insight-card h3 {
+    margin-top: 0;
+
+    color: #171A23;
+
+    font-size: 18px;
+
+}
+
+/* Barra ESG */
+
+.progress-container {
+    margin-top: 16px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+
+    background-color: #E5E7EB;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+}
+
+.progress-fill {
+    width: 76%;
+
+    height: 100%;
+
+    background-color: #6E0A7A;
+
+}
+
+/* Gráfico Fake */
+
+.grafico-placeholder {
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-end;
+
+    gap: 16px;
+
+    height: 160px;
+
+    margin-top: 24px;
+
+}
+
+.barra {
+    width: 24px;
+
+    border-radius: 4px 4px 0 0;
+
+}
+
+.barra1 {
+    height: 60px;
+    background: #001F5B;
+}
+
+.barra2 {
+    height: 100px;
+    background: #6E0A7A;
+}
+
+.barra3 {
+    height: 130px;
+    background: #22c55e;
+}
+
+.barra4 {
+    height: 90px;
+    background: #FBC84A;
+}
+
+.barra5 {
+    height: 70px;
+    background: #ef4444;
+}
+
+/* Mapa Fake */
+
+.mapa-placeholder {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 24px;
+
+    min-height: 200px;
+
+}
+
+.circulo {
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+}
+
+.circulo-amarelo {
+    background: #FBC84A;
+}
+
+.circulo-roxo {
+    background: #6E0A7A;
+}
+
+.circulo-azul {
+    background: #001F5B;
+}
+
+/* Insights Gerados */
+
+.lista-insights {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 16px;
+
+}
+
+.lista-insights li {
+    color: #475569;
+    line-height: 1.5;
+}
+
+/*Distribuição por Região*/
+
+.regioes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.regiao-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.regiao-nome {
+    width: 100px;
+    font-size: 14px;
+    color: #334155;
+}
+
+.regiao-barra {
+    flex: 1;
+    height: 12px;
+    background-color: #E5E7EB;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.regiao-preenchimento {
+    height: 100%;
+    background-color: #001f5b;
+    border-radius: 999px;
+}
+
+.regiao-valor {
+    width: 40px;
+    text-align: right;
+    font-size: 13px;
+    color: #64748B;
+}
