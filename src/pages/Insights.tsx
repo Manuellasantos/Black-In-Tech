@@ -1,4 +1,5 @@
 import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import Layout from "../components/Layout";
 import "./Insights.css";
 const Insights: React.FC = () => {
@@ -43,6 +44,21 @@ const Insights: React.FC = () => {
         metaAnual: 50,
         progresso: 76
     };
+
+    const evolucaoDiversidade = [
+        { mes: "Jan", diversidade: 12 },
+        { mes: "Fev", diversidade: 13 },
+        { mes: "Mar", diversidade: 13 },
+        { mes: "Abr", diversidade: 15 },
+        { mes: "Mai", diversidade: 17 },
+        { mes: "Jun", diversidade: 22 },
+        { mes: "Jul", diversidade: 23 },
+        { mes: "Ago", diversidade: 29 },
+        { mes: "Set", diversidade: 30 },
+        { mes: "Out", diversidade: 32 },
+        { mes: "Nov", diversidade: 35 },
+        { mes: "Dez", diversidade: 41 }
+    ]
 
     const insights = [
         "Crescimento de 12% na diversidade da equipe.",
@@ -95,7 +111,7 @@ const Insights: React.FC = () => {
                                 <span className="texto-tendencia">
                                     {item.variacao} {item.descricao}
                                 </span>
-                                
+
                             </span>
                         )}
                     </div>
@@ -109,14 +125,16 @@ const Insights: React.FC = () => {
                     <div className="insight-card">
                         <h3>Metas ESG</h3>
 
-                        <p>
-                            Diversidade Atual:
-                            <strong> {metasESG.diversidadeAtual}%</strong>
-                        </p>
-                        <p>
-                            Meta Anual:
-                            <strong> {metasESG.metaAnual}%</strong>
-                        </p>
+                        <div className="meta-info">
+                            <span className="meta-label">
+                                Diversidade:
+                            </span>
+
+                            <span className="meta-valor">
+                                {metasESG.diversidadeAtual}% / {metasESG.metaAnual}%
+                            </span>
+                        </div>
+
                         <div className="progress-container">
                             <div className="progress-bar">
                                 <div
@@ -132,12 +150,27 @@ const Insights: React.FC = () => {
                     <div className="insight-card">
                         <h3>Evolução da Diversidade</h3>
 
-                        <div className="grafico-placeholder">
-                            <div className="barra barra1"></div>
-                            <div className="barra barra2"></div>
-                            <div className="barra barra3"></div>
-                            <div className="barra barra4"></div>
-                            <div className="barra barra5"></div>
+                        <div className="grafico-container">
+                            <ResponsiveContainer width="100%" height={240}>
+                                <LineChart data={evolucaoDiversidade}>
+                                    <CartesianGrid strokeDasharray="3 3" />
+
+                                    <XAxis dataKey="mes" />
+
+                                    <YAxis />
+
+                                    <Tooltip 
+                                        formatter={(value) => [`${value}%`, "Diversidade"]}
+                                    />
+
+                                    <Line
+                                        type="monotone"
+                                        dataKey="diversidade"
+                                        stroke="#FCBB1A"
+                                        strokeWidth={3}
+                                    />
+                                </LineChart>
+                            </ResponsiveContainer>
                         </div>
                     </div>
 

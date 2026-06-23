@@ -98,11 +98,29 @@
 .insight-card h3 {
     margin-top: 0;
     color: #171A23;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 600;
 
 }
 
 /* Barra ESG */
+
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+.meta-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #334155;
+}
+.meta-valor {
+    font-size: 15px;
+    color: #64748b;
+}
 
 .progress-container {
     margin-top: 16px;
@@ -112,6 +130,7 @@
     width: 100%;
     height: 36px;
     background-color: #E5E7EB;
+    border: 2px solid #566700;
     border-radius: 999px;
     overflow: hidden;
 
@@ -121,70 +140,31 @@
     width: 76%;
     height: 100%;
     background-color: #566700;
-
 }
 
 /* Gráfico Fake */
 
-.grafico-placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 16px;
-    height: 160px;
-    margin-top: 24px;
-}
-
-.barra {
-    width: 24px;
-    border-radius: 4px 4px 0 0;
-}
-
-.barra1 {
-    height: 60px;
-    background: #001F5B;
-}
-
-.barra2 {
-    height: 100px;
-    background: #6E0A7A;
-}
-
-.barra3 {
-    height: 130px;
-    background: #22c55e;
-}
-
-.barra4 {
-    height: 90px;
-    background: #FBC84A;
-}
-
-.barra5 {
-    height: 70px;
-    background: #ef4444;
+.grafico-container{
+    width: 100%;
+    height: 260px;
+    margin-top: 22px;
+    margin-left: -20px
 }
 
 /* Mapa Fake */
 
 .mapa-placeholder {
     display: flex;
-
     justify-content: center;
     align-items: center;
-
     gap: 24px;
-
     min-height: 200px;
-
 }
 
 .circulo {
     width: 80px;
     height: 80px;
-
     border-radius: 50%;
-
 }
 
 .circulo-amarelo {
