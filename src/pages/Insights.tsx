@@ -26,7 +26,7 @@ const Insights: React.FC = () => {
             variacao: "+6%",
             descricao: "crescimento no último trimestre",
             tendencia: "up",
-            cor: "roxo"
+            cor: "verde-escuro"
         },
         {
             valor: "5",
@@ -84,19 +84,18 @@ const Insights: React.FC = () => {
                         <p>{item.titulo}</p>
 
                         {item.variacao && (
-                            <span
-                                className={
-                                    item.tendencia === "up"
-                                        ? "positivo"
-                                        : "negativo"
-                                }
-                            >
+                            <span className="indicador-tendencia">
+
                                 {item.tendencia === "up" ? (
-                                    <FiTrendingUp />
+                                    <FiTrendingUp className="icone-positivo" />
                                 ) : (
-                                    <FiTrendingDown />
+                                    <FiTrendingDown className="icone-negativo" />
                                 )}
-                                {item.variacao} {item.descricao}
+
+                                <span className="texto-tendencia">
+                                    {item.variacao} {item.descricao}
+                                </span>
+                                
                             </span>
                         )}
                     </div>

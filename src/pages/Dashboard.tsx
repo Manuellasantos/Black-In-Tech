@@ -17,12 +17,12 @@ const Dashboard = () => {
                     <p>Contratações</p>
                 </div>
 
-                <div className="card metric-card amarelo">
+                <div className="card metric-card verde-escuro">
                     <h2>5</h2>
                     <p>Vagas Abertas</p>
                 </div>
 
-                <div className="card metric-card roxo">
+                <div className="card metric-card amarelo">
                     <h2>85</h2>
                     <p>Talentos Compatíveis</p>
                 </div>

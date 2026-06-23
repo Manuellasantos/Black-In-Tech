@@ -32,23 +32,38 @@
     text-align: center;
 }
 
-.card-esg span {
+.indicador-tendencia {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    margin-top: 6px;
+    width: 100%;
+    gap: 2px;
+    margin-top: 8px;
+    padding: 0 20px;
     font-size: 12px;
     font-weight: 500;
-    /* text-align: center; */
     opacity: 0.9;
 }
+.texto-tendencia{
+    color: white;
+    font-size: 14px;
+    line-height: 1.3;
+    text-align: center;
+}
 
-.positivo {
+.icone-positivo,
+.icone-negativo {
+    font-size: 20px;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 2px;
+}
+
+.icone-positivo {
     color: #22c55e;
 }
 
-.negativo {
+.icone-negativo {
     color: #ef4444;
 }
 
@@ -74,20 +89,15 @@
 
 .insight-card {
     background: white;
-
     border-radius: 12px;
-
     padding: 24px;
-
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
 }
 
 .insight-card h3 {
     margin-top: 0;
-
     color: #171A23;
-
     font-size: 18px;
 
 }
@@ -100,22 +110,17 @@
 
 .progress-bar {
     width: 100%;
-    height: 12px;
-
+    height: 36px;
     background-color: #E5E7EB;
-
     border-radius: 999px;
-
     overflow: hidden;
 
 }
 
 .progress-fill {
     width: 76%;
-
     height: 100%;
-
-    background-color: #6E0A7A;
+    background-color: #566700;
 
 }
 
@@ -123,23 +128,16 @@
 
 .grafico-placeholder {
     display: flex;
-
     justify-content: center;
     align-items: flex-end;
-
     gap: 16px;
-
     height: 160px;
-
     margin-top: 24px;
-
 }
 
 .barra {
     width: 24px;
-
     border-radius: 4px 4px 0 0;
-
 }
 
 .barra1 {
@@ -241,7 +239,7 @@
 
 .regiao-barra {
     flex: 1;
-    height: 12px;
+    height: 18px;
     background-color: #E5E7EB;
     border-radius: 999px;
     overflow: hidden;
@@ -256,6 +254,6 @@
 .regiao-valor {
     width: 40px;
     text-align: right;
-    font-size: 13px;
+    font-size: 14px;
     color: #64748B;
 }
