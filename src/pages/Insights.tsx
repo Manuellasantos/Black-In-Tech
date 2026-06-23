@@ -1,6 +1,7 @@
 import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import Layout from "../components/Layout";
+import mapaBrasil from "../assets/mapa/brasil.svg";
 import "./Insights.css";
 const Insights: React.FC = () => {
 
@@ -86,6 +87,29 @@ const Insights: React.FC = () => {
         }
     ];
 
+    const concentracaoTalentos = [
+        {
+            regiao: "Norte",
+            percentual: 5
+        },
+        {
+            regiao: "Nordeste",
+            percentual: 12
+        },
+        {
+            regiao: "Centro-Oeste",
+            percentual: 21
+        },
+        {
+            regiao: "Sudeste",
+            percentual: 47
+        },
+        {
+            regiao: "Sul",
+            percentual: 15
+        }
+    ];
+
     return (
         <Layout titulo="Insights ESG">
 
@@ -159,7 +183,7 @@ const Insights: React.FC = () => {
 
                                     <YAxis />
 
-                                    <Tooltip 
+                                    <Tooltip
                                         formatter={(value) => [`${value}%`, "Diversidade"]}
                                     />
 
@@ -209,13 +233,29 @@ const Insights: React.FC = () => {
 
                 <div className="insights-right">
                     <div className="insight-card">
-                        <h3>Mapa de Concentração de Talentos</h3>
+                        <div className="mapa-card">
+                            <h3>Mapa de Concentração de Talentos</h3>
 
-                        <div className="mapa-placeholder">
-                            <div className="circulo circulo-amarelo"></div>
-                            <div className="circulo circulo-roxo"></div>
-                            <div className="circulo circulo-azul"></div>
+                            <div className="mapa-container">
+
+                                <img
+                                    src={mapaBrasil}
+                                    alt="Mapa do Brasil"
+                                    className="mapa-brasil"
+                                />
+
+                                {concentracaoTalentos.map((item) => (
+                                    <div
+                                        key={item.regiao}
+                                        className={`badge-regiao ${item.regiao.toLowerCase()}`}
+                                    >
+                                        {item.percentual}%
+                                    </div>
+                                ))}
+
+                            </div>
                         </div>
+
                     </div>
 
                     <div className="insight-card">

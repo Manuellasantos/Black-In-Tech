@@ -142,7 +142,7 @@
     background-color: #566700;
 }
 
-/* Gráfico Fake */
+/* Gráfico Dinâmico */
 
 .grafico-container{
     width: 100%;
@@ -151,32 +151,55 @@
     margin-left: -20px
 }
 
-/* Mapa Fake */
+/* Mapa Dinâmico */
 
-.mapa-placeholder {
+.mapa-container {
+    position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 24px;
-    min-height: 200px;
+    margin-top: 20px;
+}
+.mapa-brasil {
+    max-width: 100%;
+    max-width: 450px;
+    height: auto;
 }
 
-.circulo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+.badge-regiao {
+    position: absolute;
+    background: #d9d9d9;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.circulo-amarelo {
-    background: #FBC84A;
+.norte {
+    top: 40px;
+    left: 20px;
 }
 
-.circulo-roxo {
-    background: #6E0A7A;
+.nordeste {
+    top: 70px;
+    right: 20px;
 }
 
-.circulo-azul {
-    background: #001F5B;
+.centro-oeste {
+    bottom: 145px;
+    left: 125px;
+}
+
+.sudeste {
+    bottom: 120px;
+    right: 20px;
+}
+
+.sul {
+    bottom: 40px;
+    left: 45%;
+    transform: translateX(-59%);
 }
 
 /* Insights Gerados */
