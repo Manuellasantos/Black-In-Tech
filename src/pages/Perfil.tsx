@@ -1,18 +1,11 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import Layout from "../components/Layout";
 
 const Perfil: React.FC = () => {
     return(
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Perfil</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-
-            <IonContent fullscreen>
-                Perfil
-            </IonContent>
-        </IonPage>
+        <Layout titulo="Perfil">
+            <h2>Perfil</h2>
+        </Layout>
+    
     );
 };
 

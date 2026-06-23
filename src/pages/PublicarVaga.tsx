@@ -1,18 +1,10 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import Layout from "../components/Layout";
 
 const PublicarVaga: React.FC = () => {
-    return(
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Publicar Vaga</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-
-            <IonContent fullscreen>
-                Publicar Vaga
-            </IonContent>
-        </IonPage>
+    return (
+        <Layout titulo="Publicar Vaga">
+            <h2>Publicar Vaga</h2>
+        </Layout>
     );
 };
 

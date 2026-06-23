@@ -1,18 +1,9 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
-
+import Layout from "../components/Layout";
 const Insights: React.FC = () => {
     return(
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Insights</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-
-            <IonContent fullscreen>
-                Insights
-            </IonContent>
-        </IonPage>
+        <Layout titulo="Insights ESG">
+            <h2>Insights ESG</h2>
+        </Layout>
     );
 };
 

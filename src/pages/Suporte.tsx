@@ -1,18 +1,10 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from "@ionic/react";
+import Layout from "../components/Layout";
 
 const Suporte: React.FC = () => {
     return(
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Suporte</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-
-            <IonContent fullscreen>
-                Suporte
-            </IonContent>
-        </IonPage>
+        <Layout titulo="Suporte">
+            <h2>Suporte</h2>
+        </Layout>
     );
 };
 

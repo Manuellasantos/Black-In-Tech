@@ -1,12 +1,14 @@
 .header {
-    height: 80px;
+    height: 120px;
     background-color: white;
     display: flex;
     align-items:center;
-    padding: 0 24px;
+    padding: 0 40px;
     border-bottom: 1px solid #e5e7eb;
 }
 .header h1 {
-    color: #111827;
+    color: var(--titulo-pag);
+    font-weight: 700;
+    font-size: 32px;
     margin: 0;
 }
