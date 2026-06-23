@@ -127,7 +127,7 @@ const Resultados: React.FC = () => {
                   <option value="Sudeste">Sudeste</option>
                   <option value="Sul">Sul</option>
                 </select>
-                <IonIcon icon={chevronDownOutline} className="select-arrow" />
+                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
               </div>
 
               <div className="filter-select-wrapper">
@@ -137,7 +137,7 @@ const Resultados: React.FC = () => {
                   <option value="Pleno">Intermediário / Pleno</option>
                   <option value="Sênior">Avançado / Sênior</option>
                 </select>
-                <IonIcon icon={chevronDownOutline} className="select-arrow" />
+                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
               </div>
 
               <div className="filter-select-wrapper">
@@ -149,7 +149,7 @@ const Resultados: React.FC = () => {
                   <option value="CSS">CSS</option>
                   <option value="JavaScript">JavaScript</option>
                 </select>
-                <IonIcon icon={chevronDownOutline} className="select-arrow" />
+                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
               </div>
 
               <div className="filter-select-wrapper">
@@ -160,7 +160,7 @@ const Resultados: React.FC = () => {
                   <option value="Pretos/Pardos">Pretos / Pardos</option>
                   <option value="LGBTQIA+">LGBTQIA+</option>
                 </select>
-                <IonIcon icon={chevronDownOutline} className="select-arrow" />
+                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
               </div>
 
               <button className="btn-filter-main" onClick={() => alert('Abrindo painel avançado...')}>
