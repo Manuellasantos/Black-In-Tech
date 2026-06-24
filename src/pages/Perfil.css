@@ -36,6 +36,25 @@
     cursor: pointer;
 }
 
+.btn-editar {
+    /* margin-left: auto; */
+    margin: 18px auto 0;
+    width: 110px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 1px solid var(--titulo-pag);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: var(--titulo-pag);
+    cursor: pointer;
+    font-weight: 600;
+}
+
 /*Card Dados da Empresa*/
 .card-empresa{
     border-top: 5px solid var(--secondary-color);
@@ -135,13 +154,17 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding-right: 24px;
+    padding-right: 18px;
     border-right: 1px solid #E5E7EB; /*Linhas verticais de divisão*/
 }
-.responsavel-item:last-child {
+.responsavel-item:last-of-type {
     border-right: none;
 }
 .responsavel-item span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
     color: #64748B;
     font-size: 15px;
 }
@@ -151,12 +174,68 @@
     color: var(--titulo-pag);
 }
 
-.btn-editar {
-    margin-left: auto;
-    border: 1px solid #CBD5E1;
-    background: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
+/*Card Metas ESG*/
+.metas-card {
+    display: flex;
+    flex-direction: column;
+}
+/* .metas-card .btn-editar {
+    margin-top: auto;
+    align-self: center;
+    width: 120px;
+} */
+.metas-card hr {
+    margin: 4px 0;
+    border: none;
+    border-top: 1px solid #E5E7EB;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 14px 0 10px 0;
+}
+
+.meta-icone {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #FFF8E6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color: var(--secondary-color); */
+    font-size: 32px;
+    flex-shrink: 0;
+}
+.meta-icone.amarelo {
+    background: #FFF8E6;
+    color: var(--secondary-color);
+}
+.meta-icone.azul {
+    background: #EEF4FF;
+    color: #4F7DFF;
+}
+
+.meta-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+.meta-info span {
+    color: #64748B;
+    font-size: 14px;
+}
+.meta-valor{
+    margin: 6px 0 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+.meta-valor.amarelo-dado {
+    color: var(--secondary-color);
+}
+.meta-valor.azul-dado {
+    color: #4F7DFF;
 }

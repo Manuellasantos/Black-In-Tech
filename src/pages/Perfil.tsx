@@ -1,4 +1,4 @@
-import { FiUser, FiTarget, FiStar, FiGrid, FiFileText, FiTag, FiUsers } from "react-icons/fi";
+import { FiUser, FiTarget, FiStar, FiGrid, FiFileText, FiTag, FiUsers, FiEdit, FiBriefcase, FiMail, FiPhone, FiCheckCircle } from "react-icons/fi";
 import { businessOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import Layout from "../components/Layout";
@@ -103,27 +103,40 @@ const Perfil: React.FC = () => {
                         </div>
 
                         <div className="responsavel-item">
-                            <span>Nome</span>
+                            <span>
+                                <FiUser className="info-icon" />
+                                Nome
+                            </span>
                             <p>{responsavel.nome}</p>
                         </div>
 
                         <div className="responsavel-item">
-                            <span>Cargo</span>
+                            <span>
+                                <FiBriefcase className="info-icon" />
+                                Cargo
+                            </span>
                             <p>{responsavel.cargo}</p>
                         </div>
 
                         <div className="responsavel-item">
-                            <span>E-mail</span>
+                            <span>
+                                <FiMail className="info-icon" />
+                                E-mail
+                            </span>
                             <p>{responsavel.email}</p>
                         </div>
 
                         <div className="responsavel-item">
-                            <span>Telefone</span>
+                            <span>
+                                <FiPhone className="info-icon" />
+                                Telefone
+                            </span>
                             <p>{responsavel.telefone}</p>
                         </div>
 
                         <button className="btn-editar">
                             Editar
+                            <FiEdit />
                         </button>
 
                     </div>
@@ -131,21 +144,49 @@ const Perfil: React.FC = () => {
 
                 <div className="perfil-grid">
 
-                    <section className="perfil-card">
+                    <section className="perfil-card metas-card">
                         <h3 className="section-title">
                             <FiTarget className="section-icon" />
                             Metas ESG
                         </h3>
 
-                        <p>
-                            Meta Diversidade:
-                            {metas.diversidade}%
-                        </p>
+                        <div className="meta-item">
 
-                        <p>
-                            Contratações Inclusivas:
-                            {metas.contratacoesInclusivas}
-                        </p>
+                            <div className="meta-icone amarelo">
+                                <FiUsers />
+                            </div>
+
+                            <div className="meta-info">
+                                <span>Meta de Diversidade</span>
+                                <h2 className="meta-valor amarelo-dado">
+                                    {metas.diversidade}%
+                                </h2>
+                            </div>
+
+                        </div>
+
+                        <hr />
+
+                        <div className="meta-item">
+
+                            <div className="meta-icone azul">
+                                <FiCheckCircle />
+                            </div>
+
+                            <div className="meta-info">
+                                <span>Meta de Contratações Inclusivas</span>
+                                <h2 className="meta-valor azul-dado">
+                                    {metas.contratacoesInclusivas}
+                                </h2>
+                            </div>
+
+                        </div>
+
+                        <button className="btn-editar">
+                            Editar
+                            <FiEdit />
+                        </button>
+
                     </section>
 
                     <section className="perfil-card plano-card">
