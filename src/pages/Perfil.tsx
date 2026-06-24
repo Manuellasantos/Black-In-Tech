@@ -1,4 +1,4 @@
-import { FiUser, FiTarget, FiStar, FiGrid, FiFileText, FiTag, FiUsers, FiEdit, FiBriefcase, FiMail, FiPhone, FiCheckCircle } from "react-icons/fi";
+import { FiUser, FiTarget, FiStar, FiGrid, FiFileText, FiTag, FiUsers, FiEdit, FiBriefcase, FiMail, FiPhone, FiCheckCircle, FiArrowRight, FiCreditCard } from "react-icons/fi";
 import { businessOutline } from "ionicons/icons";
 import { IonIcon } from "@ionic/react";
 import Layout from "../components/Layout";
@@ -26,6 +26,21 @@ const Perfil: React.FC = () => {
     const metas = {
         diversidade: 50,
         contratacoesInclusivas: 12
+    };
+
+    const plano = {
+        nome: "Premium Plus",
+        beneficios: [
+            "Matching Inteligente",
+            "Relatórios ESG",
+            "Mapa de Talentos",
+            "Suporte Prioritário"
+        ],
+        valor: "R$ 599,90",
+        renovacao: "12/05/2027",
+        proximaCobranca: "12/07/2026",
+        pagamento: "Cartão de Crédito",
+        status: "Ativo"
     };
 
     return (
@@ -190,16 +205,83 @@ const Perfil: React.FC = () => {
                     </section>
 
                     <section className="perfil-card plano-card">
+
                         <h3 className="section-title">
                             <FiStar className="section-icon" />
                             Plano da Plataforma
                         </h3>
 
-                        <p>Premium Plus</p>
+                        <div className="plano-header">
+                            <div className="plano-header-info">
+                                <FiStar className="plano-star" />
+                                <div>
+                                    <span className="plano-label">
+                                        Plano Contratado
+                                    </span>
+                                    <h4>{plano.nome}</h4>
+                                </div>
+                            </div>
+                        </div>
 
-                        <p>R$ 599,90</p>
+                        <div className="plano-content">
+                            {/* COLUNA 1 */}
+                            <div className="plano-coluna">
+                                <div className="beneficios">
+                                    {plano.beneficios.map((beneficio, index) => (
+                                        <div
+                                            key={index}
+                                            className="beneficio-item"
+                                        >
+                                            <FiCheckCircle className="beneficio-icon" />
+                                            <span>{beneficio}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <button className="btn-editar btn-plano">
+                                    Alterar Plano
+                                    <FiArrowRight />
+                                </button>
+                            </div>
 
-                        <p>Status: Ativo</p>
+                            {/* COLUNA 2 */}
+
+                            <div className="plano-coluna">
+                                <div className="info-item">
+                                    <span>Valor Mensal</span>
+                                    <p>{plano.valor}</p>
+                                </div>
+                                <div className="info-item">
+                                    <span>Próxima Cobrança</span>
+                                    <p>{plano.proximaCobranca}</p>
+                                </div>
+                                <div className="info-item">
+                                    <span>Forma de Pagamento</span>
+                                    <p>{plano.pagamento}</p>
+                                </div>
+                            </div>
+
+                            {/* COLUNA 3 */}
+
+                            <div className="plano-coluna">
+                                <div className="info-item">
+                                    <span>Renovação</span>
+                                    <p>{plano.renovacao}</p>
+                                </div>
+                                <hr className="plano-divider" />
+                                <div className="status-box">
+                                    <span>Status</span>
+                                    <div className="status-ativo">
+                                        <span className="status-dot"></span>
+                                        Ativo
+                                    </div>
+                                </div>
+                                <button className="btn-editar btn-plano">
+                                    Atualizar Pagamento
+                                    <FiCreditCard />
+                                </button>
+                            </div>
+                        </div>
+
                     </section>
 
                 </div>

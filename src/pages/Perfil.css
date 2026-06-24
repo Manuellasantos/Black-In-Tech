@@ -28,10 +28,11 @@
 .btn-salvar {
     width: 280px;
     margin: 0 auto;
-    padding: 14px;
+    padding: 18px;
     border: none;
     border-radius: 8px;
     background: var(--secondary-color);
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -238,4 +239,168 @@
 }
 .meta-valor.azul-dado {
     color: #4F7DFF;
+}
+
+/*Card Plano da Plataforma*/
+.plano-card{
+    /* padding: 24px 0; */
+    overflow: hidden;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.plano-header{
+    background: var(--primary-color);
+    color: white;
+    padding: 20px 28px;
+    margin-top: 24px;
+}
+.plano-header-info{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.plano-star{
+    color: var(--secondary-color);
+    font-size:26px;
+    flex-shrink:0;
+}
+
+.plano-label{
+    display:block;
+    color:#CBD5E1;
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.plano-header h4{
+    margin:0;
+    font-size:24px;
+    font-weight:600;
+    color:white;
+}
+
+/* ---------- Corpo ---------- */
+
+.plano-content{
+    display:grid;
+    grid-template-columns: 1fr 1fr 0.9fr;
+    gap:28px;
+    padding:28px;
+}
+
+/* ---------- Colunas ---------- */
+
+.plano-coluna{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:280px;
+}
+
+.plano-coluna:not(:last-child){
+    border-right:1px solid #E5E7EB;
+    padding-right:24px;
+}
+
+/* ---------- Benefícios ---------- */
+
+.beneficios{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.beneficio-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.beneficio-item span{
+    font-size:17px;
+    color:var(--titulo-pag);
+}
+
+.beneficio-icon{
+    color:#22C55E;
+    font-size:22px;
+}
+
+/* ---------- Informações ---------- */
+
+.info-item{
+    margin-bottom:28px;
+}
+
+.info-item:last-child{
+    margin-bottom:0;
+}
+
+.info-item span{
+    display:block;
+    color:#64748B;
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.info-item p{
+    margin:0;
+    font-size:18px;
+    font-weight:600;
+    color:var(--titulo-pag);
+}
+
+/* ---------- Divider ---------- */
+
+.plano-divider{
+    border:none;
+    border-top:1px solid #E5E7EB;
+    margin:4px 0 20px;
+}
+
+/* ---------- Status ---------- */
+
+.status-box{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:28px;
+}
+
+.status-box span{
+    color:#64748B;
+    font-size:14px;
+}
+
+.status-ativo{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    width:fit-content;
+    background:#ECFDF5;
+    color:#16A34A;
+    padding:8px 16px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:15px;
+}
+
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22C55E;
+}
+
+/* ---------- Botões ---------- */
+
+.btn-plano{
+    width:190px;
+    height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
 }
