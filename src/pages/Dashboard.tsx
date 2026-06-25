@@ -2,31 +2,85 @@ import Layout from "../components/Layout";
 import "./Dashboard.css";
 
 const Dashboard = () => {
-    return(
+
+    const dashboard = {
+        indicadores: [
+            {
+                titulo: "Diversidade Atual",
+                valor: "38%",
+                cor: "azul"
+            },
+            {
+                titulo: "Contratações",
+                valor: 12,
+                cor: "escuro"
+            },
+            {
+                titulo: "Vagas Abertas",
+                valor: 5,
+                cor: "verde-escuro"
+            },
+            {
+                titulo: "Talentos Compatíveis",
+                valor: 85,
+                cor: "amarelo"
+            }
+        ],
+
+        vagas: [
+            "Designer UX",
+            "Analista de Dados",
+            "Desenvolvedor Front-End"
+        ],
+
+        diversidade: [
+            { categoria: "Mulheres", valor: 82, cor: "barra-azul" },
+            { categoria: "PCD", valor: 70, cor: "vinho" },
+            { categoria: "LGBTQIA+", valor: 95, cor: "verde" },
+            { categoria: "Indígenas", valor: 40, cor: "vermelha" },
+            { categoria: "Pretos/Pardos", valor: 65, cor: "amarela" },
+            { categoria: "Outros", valor: 115, cor: "barra-escura" }
+        ],
+
+        mapa: [
+            {
+                regiao: "Norte",
+                percentual: 5
+            },
+            {
+                regiao: "Nordeste",
+                percentual: 12
+            },
+            {
+                regiao: "Centro-Oeste",
+                percentual: 21
+            },
+            {
+                regiao: "Sudeste",
+                percentual: 47
+            },
+            {
+                regiao: "Sul",
+                percentual: 15
+            }
+        ]
+    };
+
+    return (
         <Layout titulo="Dashboard">
 
             <div className="dashboard-cards">
 
-                <div className="card metric-card azul">
-                    <h2>38%</h2>
-                    <p>Diversidade Atual</p>
-                </div>
+                {dashboard.indicadores.map((item, index) => (
 
-                <div className="card metric-card escuro">
-                    <h2>12</h2>
-                    <p>Contratações</p>
-                </div>
-
-                <div className="card metric-card verde-escuro">
-                    <h2>5</h2>
-                    <p>Vagas Abertas</p>
-                </div>
-
-                <div className="card metric-card amarelo">
-                    <h2>85</h2>
-                    <p>Talentos Compatíveis</p>
-                </div>
-
+                    <div
+                        key={index}
+                        className={`card metric-card ${item.cor}`}
+                    >
+                        <h2>{item.valor}</h2>
+                        <p>{item.titulo}</p>
+                    </div>
+                ))}
             </div>
 
             <div className="dashboard-middle">
@@ -35,12 +89,15 @@ const Dashboard = () => {
                     <h3>Gráfico de Diversidade</h3>
 
                     <div className="grafico-placeholder">
-                        <div className="barra barra-azul"></div>
-                        <div className="barra vinho"></div>
-                        <div className="barra verde"></div>
-                        <div className="barra vermelha"></div>
-                        <div className="barra amarela"></div>
-                        <div className="barra barra-escura"></div>
+                        {dashboard.diversidade.map((item, index) => (
+
+                            <div
+                                key={index}
+                                className={`barra ${item.cor}`}
+                                style={{ height: `${item.valor}px` }}
+                                title={item.categoria}
+                            ></div>
+                        ))}
                     </div>
                 </div>
 
@@ -48,9 +105,11 @@ const Dashboard = () => {
                     <h3>Últimas Vagas Publicadas</h3>
 
                     <ul className="lista-vagas">
-                        <li>▶ Designer UX</li>
-                        <li>▶ Analista de Dados</li>
-                        <li>▶ Desenvolvedor Front-End</li>
+                          {dashboard.vagas.map((vaga, index) => (
+                            <li key={index}>
+                                ▶ {vaga}
+                            </li>
+                        ))}
                     </ul>
                 </div>
 
@@ -60,9 +119,20 @@ const Dashboard = () => {
                 <h3>Mapa de Concentração de Talentos</h3>
 
                 <div className="mapa-placeholder">
-                    <div className="circulo circulo-amarelo"></div>
-                    <div className="circulo circulo-roxo"></div>
-                    <div className="circulo circulo-azul"></div>
+                    {dashboard.mapa.map((item, index) => (
+                        <div
+                            key={index}
+                            className="mapa-item"
+                        >
+                            <div className="circulo"></div>
+                            <span>
+                                {item.regiao}
+                            </span>
+                            <strong>
+                                {item.percentual}%
+                            </strong>
+                        </div>
+                    ))}
                 </div>
             </div>
 
