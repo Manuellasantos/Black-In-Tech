@@ -3,12 +3,39 @@
     background-color: white;
     display: flex;
     align-items:center;
+    justify-content: space-between;
     padding: 0 40px;
     border-bottom: 1px solid #e5e7eb;
+    flex-shrink:  0;
 }
-.header h1 {
-    color: var(--titulo-pag);
-    font-weight: 700;
-    font-size: 32px;
+
+.header-title {
     margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.titulo-amarelo {
+    color: var(--secondary-color);
+}
+.titulo-azul {
+    color: var(--titulo-pag);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 22px;
+    color: var(--titulo-pag);
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.header-icon:hover {
+    transform: scale(1.1);
 }
