@@ -42,27 +42,18 @@ const Dashboard = () => {
             { categoria: "Outros", valor: 115, cor: "barra-escura" }
         ],
 
-        mapa: [
-            {
-                regiao: "Norte",
-                percentual: 5
-            },
-            {
-                regiao: "Nordeste",
-                percentual: 12
-            },
-            {
-                regiao: "Centro-Oeste",
-                percentual: 21
-            },
-            {
-                regiao: "Sudeste",
-                percentual: 47
-            },
-            {
-                regiao: "Sul",
-                percentual: 15
-            }
+        atividades: [
+            "Nova vaga UX publicada",
+            "12 candidatos compatíveis encontrados",
+            "Relatório ESG atualizado",
+            "Perfil da empresa atualizado"
+        ],
+
+        insightsRapidos: [
+            "Maior concentração de talentos no Sudeste",
+            "Mulheres representam 38% dos candidatos",
+            "Crescimento de 12% no matching este mês",
+            "Diversidade aumentou 5% no último trimestre"
         ]
     };
 
@@ -105,7 +96,7 @@ const Dashboard = () => {
                     <h3>Últimas Vagas Publicadas</h3>
 
                     <ul className="lista-vagas">
-                          {dashboard.vagas.map((vaga, index) => (
+                        {dashboard.vagas.map((vaga, index) => (
                             <li key={index}>
                                 ▶ {vaga}
                             </li>
@@ -114,27 +105,33 @@ const Dashboard = () => {
                 </div>
 
             </div>
+            <div className="dashboard-bottom">
 
-            <div className="dashboard-card mapa-card">
-                <h3>Mapa de Concentração de Talentos</h3>
+                    <div className="dashboard-card">
+                        <h3>Atividade Recente</h3>
 
-                <div className="mapa-placeholder">
-                    {dashboard.mapa.map((item, index) => (
-                        <div
-                            key={index}
-                            className="mapa-item"
-                        >
-                            <div className="circulo"></div>
-                            <span>
-                                {item.regiao}
-                            </span>
-                            <strong>
-                                {item.percentual}%
-                            </strong>
-                        </div>
-                    ))}
+                        <ul className="lista-atividades">
+                            {dashboard.atividades.map((atividade, index) => (
+                                <li key={index}>
+                                    • {atividade}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="dashboard-card">
+                        <h3>Insights Rápidos</h3>
+
+                        <ul className="lista-insights">
+                            {dashboard.insightsRapidos.map((insight, index) => (
+                                <li key={index}>
+                                    💡 {insight}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
                 </div>
-            </div>
 
         </Layout>
     );
