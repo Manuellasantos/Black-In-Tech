@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonPage, IonContent, IonIcon } from '@ionic/react';
+import { IonIcon } from '@ionic/react';
 import { 
   briefcaseOutline, 
   documentTextOutline, 
@@ -11,12 +11,9 @@ import {
   heartOutline,
   addOutline,
   closeOutline,
-  sparklesOutline,
-  languageOutline,    
-  sunnyOutline,        
-  notificationsOutline 
+  sparklesOutline, 
 } from 'ionicons/icons';
-import Sidebar from '../components/Sidebar';
+import Layout from '../components/Layout';
 import './PublicarVaga.css';
 
 const PublicarVaga: React.FC = () => {
@@ -62,24 +59,9 @@ const PublicarVaga: React.FC = () => {
   };
 
   return (
-    <IonPage>
-      <div className="main-layout">
-        <Sidebar />
+    <Layout titulo="Publicar Vaga">
 
-        <IonContent className="publicar-vaga-content">
-          <div className="publicar-vaga-container">
-            
-            <header className="vaga-header-top">
-              <h1 className="vaga-header-title">
-                <span className="title-yellow">Publicar</span>Vaga
-              </h1>
-              
-              <div className="vaga-header-actions">
-                <button className="header-icon-btn"><IonIcon icon={languageOutline} /></button>
-                <button className="header-icon-btn"><IonIcon icon={sunnyOutline} /></button>
-                <button className="header-icon-btn"><IonIcon icon={notificationsOutline} /></button>
-              </div>
-            </header>
+      <div className="publicar-vaga-container">
 
             <div className="vaga-form-card">
               
@@ -265,11 +247,8 @@ const PublicarVaga: React.FC = () => {
               </div>
 
             </div>
-
-          </div>
-        </IonContent>
       </div>
-    </IonPage>
+    </Layout>
   );
 };
 
