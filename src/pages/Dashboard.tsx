@@ -1,3 +1,4 @@
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from "recharts";
 import Layout from "../components/Layout";
 import "./Dashboard.css";
 
@@ -30,16 +31,18 @@ const Dashboard = () => {
         vagas: [
             "Designer UX",
             "Analista de Dados",
-            "Desenvolvedor Front-End"
+            "Desenvolvedor Front-End",
+            "Engenheiro de Dados",
+            "Desenvolvedor Back-End"
         ],
 
         diversidade: [
-            { categoria: "Mulheres", valor: 82, cor: "barra-azul" },
-            { categoria: "PCD", valor: 70, cor: "vinho" },
-            { categoria: "LGBTQIA+", valor: 95, cor: "verde" },
-            { categoria: "Indígenas", valor: 40, cor: "vermelha" },
-            { categoria: "Pretos/Pardos", valor: 65, cor: "amarela" },
-            { categoria: "Outros", valor: 115, cor: "barra-escura" }
+            { categoria: "Mulheres", valor: 82 },
+            { categoria: "PCD", valor: 50 },
+            { categoria: "LGBT", valor: 75 },
+            { categoria: "Indígenas", valor: 40 },
+            { categoria: "Pretos", valor: 65 },
+            { categoria: "Outros", valor: 95 }
         ],
 
         atividades: [
@@ -79,16 +82,32 @@ const Dashboard = () => {
                 <div className="dashboard-card">
                     <h3>Gráfico de Diversidade</h3>
 
-                    <div className="grafico-placeholder">
-                        {dashboard.diversidade.map((item, index) => (
+                    <div className="grafico-dashboard">
+                        <ResponsiveContainer
+                            width="100%"
+                            height={240}
+                        >
+                            <BarChart data={dashboard.diversidade}>
+                                <XAxis dataKey="categoria" />
+                                <YAxis hide/>
+                                <Tooltip 
+                                    formatter={(value) => [`${value} candidatos`, "Quantidade"]}
+                                />
 
-                            <div
-                                key={index}
-                                className={`barra ${item.cor}`}
-                                style={{ height: `${item.valor}px` }}
-                                title={item.categoria}
-                            ></div>
-                        ))}
+                                <Bar
+                                    dataKey="valor"
+                                    radius={[4, 4, 0, 0]}
+                                >
+                                    {/* Revisar Cell deprecated no futuro. */}
+                                    <Cell fill="#061D42" /> 
+                                    <Cell fill="#8B1E5A" />
+                                    <Cell fill="#6B8E00" />
+                                    <Cell fill="#FF3131" />
+                                    <Cell fill="#FBC84A" />
+                                    <Cell fill="#0c2f7a" />
+                                </Bar>
+                            </BarChart>
+                        </ResponsiveContainer>
                     </div>
                 </div>
 
@@ -107,31 +126,31 @@ const Dashboard = () => {
             </div>
             <div className="dashboard-bottom">
 
-                    <div className="dashboard-card">
-                        <h3>Atividade Recente</h3>
+                <div className="dashboard-card">
+                    <h3>Atividade Recente</h3>
 
-                        <ul className="lista-atividades">
-                            {dashboard.atividades.map((atividade, index) => (
-                                <li key={index}>
-                                    • {atividade}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="dashboard-card">
-                        <h3>Insights Rápidos</h3>
-
-                        <ul className="lista-insights">
-                            {dashboard.insightsRapidos.map((insight, index) => (
-                                <li key={index}>
-                                    💡 {insight}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
+                    <ul className="lista-atividades">
+                        {dashboard.atividades.map((atividade, index) => (
+                            <li key={index}>
+                                ▶ {atividade}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
+
+                <div className="dashboard-card">
+                    <h3>Insights Rápidos</h3>
+
+                    <ul className="lista-insights-rapidos">
+                        {dashboard.insightsRapidos.map((insight, index) => (
+                            <li key={index}>
+                                💡 {insight}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+            </div>
 
         </Layout>
     );
