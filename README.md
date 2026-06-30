@@ -22,3 +22,30 @@ A solução permite que recrutadores publiquem vagas, encontrem candidatos compa
 ## Objetivo
 
 Facilitar a conexão entre empresas e profissionais diversos, promovendo contratações mais inclusivas e decisões baseadas em dados.
+
+## Backend
+
+A API FastAPI do MVP está em [`backend/`](./backend/). Consulte [`backend/README.md`](./backend/README.md) para configurar o ambiente, executar os testes e conhecer os contratos de `/match` e `/insights`.
+
+## Execução integrada
+
+Inicie o backend em um terminal:
+
+```bash
+cd backend
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[dev]'
+cp .env.example .env
+uvicorn app.main:app --reload
+```
+
+Inicie o frontend em outro terminal:
+
+```bash
+cp .env.example .env.local
+npm install
+npm run dev
+```
+
+O frontend usa `VITE_API_URL`, com fallback local para `http://localhost:8000`. Ao gerar o matching, a resposta fica na sessão do navegador e alimenta a tela `/resultados`, inclusive após atualizar a página.

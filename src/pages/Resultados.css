@@ -6,8 +6,7 @@
 
 .resultados-content {
     --background: #f8fafc;
-    margin-left: 260px;
-    width: calc(100% - 260px);
+    width: calc(100% - 280px);
 }
 
 .resultados-container {
@@ -29,6 +28,43 @@
     align-items: center;
     gap: 6px;
     margin-bottom: 24px;
+}
+
+.metricas-matching {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(120px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.metricas-matching > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.metricas-matching strong {
+    color: #061D42;
+    font-size: 22px;
+}
+
+.metricas-matching span {
+    color: #64748b;
+    font-size: 12px;
+}
+
+.metricas-matching .meta-atingida {
+    border-color: #86efac;
+    background: #f0fdf4;
+}
+
+.metricas-matching .meta-pendente {
+    border-color: #fde68a;
+    background: #fffbeb;
 }
 
 
@@ -66,6 +102,7 @@
 
 .filtros-rapidos-row {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 30px;
 }
@@ -198,9 +235,89 @@
     font-weight: 500;
 }
 
+.diversidade-tag.sem-badge {
+    color: #64748b;
+}
+
 .skills-tags {
     font-size: 13px;
     color: #64748b;
+}
+
+.score-details {
+    margin-bottom: 18px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 12px;
+    color: #475569;
+    font-size: 12px;
+}
+
+.score-details summary {
+    color: #061D42;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.score-breakdown {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.score-breakdown span {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 7px 9px;
+    border-radius: 6px;
+    background: #f8fafc;
+}
+
+.score-details ul {
+    margin: 10px 0 0;
+    padding-left: 18px;
+}
+
+.score-details li + li {
+    margin-top: 4px;
+}
+
+.resultados-empty-state {
+    display: flex;
+    min-height: 420px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #64748b;
+}
+
+.resultados-empty-state > ion-icon {
+    color: #94a3b8;
+    font-size: 54px;
+}
+
+.resultados-empty-state h2 {
+    margin-bottom: 4px;
+    color: #061D42;
+}
+
+.resultados-empty-state a {
+    margin-top: 14px;
+    padding: 11px 20px;
+    border-radius: 7px;
+    background: #FBC84A;
+    color: #061D42;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sem-resultados-filtro {
+    grid-column: 1 / -1;
+    padding: 40px;
+    color: #64748b;
+    text-align: center;
 }
 
 /* Botões de Ação do Card */
@@ -249,4 +366,83 @@
 .btn-contato svg {
     stroke: currentColor;
     fill: currentColor;
+}
+
+@media (max-width: 1100px) {
+    .metricas-matching {
+        grid-template-columns: repeat(3, minmax(120px, 1fr));
+    }
+
+    .filtros-panel {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-layout > .sidebar {
+        display: none;
+    }
+
+    .resultados-content {
+        width: 100%;
+    }
+
+    .resultados-container {
+        padding: 24px 16px;
+    }
+
+    .metricas-matching {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+    }
+
+    .filtro-info-vaga {
+        grid-template-columns: 1fr;
+    }
+
+    .ordenar-box {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .select-custom {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .filter-select-wrapper,
+    .btn-filter-selector,
+    .btn-filter-main {
+        width: 100%;
+    }
+
+    .btn-filter-main {
+        justify-content: center;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 520px) {
+    .metricas-matching {
+        grid-template-columns: 1fr;
+    }
+
+    .card-top-info {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .compatibilidade-badge {
+        width: 100%;
+        margin-left: 76px;
+        text-align: left;
+    }
+
+    .score-breakdown,
+    .card-actions {
+        grid-template-columns: 1fr;
+    }
 }

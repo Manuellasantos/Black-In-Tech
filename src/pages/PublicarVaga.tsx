@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { IonIcon } from '@ionic/react';
+import { useHistory } from 'react-router-dom';
 import { 
   briefcaseOutline, 
   documentTextOutline, 
@@ -14,15 +15,19 @@ import {
   sparklesOutline, 
 } from 'ionicons/icons';
 import Layout from '../components/Layout';
+import { requestMatch } from '../services/api';
+import { buildMatchRequest } from '../services/matchMapper';
+import { saveMatchSession } from '../services/matchSession';
 import './PublicarVaga.css';
 
 const PublicarVaga: React.FC = () => {
+  const history = useHistory();
   // Estados do formulário
   const [titulo, setTitulo] = useState('');
   const [descricao, setDescricao] = useState('');
   const [nivel, setNivel] = useState('Júnior');
   const [modalidade, setModalidade] = useState('Presencial');
-  const [regiao, setRegiao] = useState('Sudeste');
+  const [regiao, setRegiao] = useState('Grande Florianópolis');
   const [prioridadeDiversidade, setPrioridadeDiversidade] = useState('Média');
 
   const [antiVies, setAntiVies] = useState(false);
@@ -30,6 +35,8 @@ const PublicarVaga: React.FC = () => {
 
   const [skills, setSkills] = useState<string[]>(['React', 'NodeJs', 'Python']);
   const [novaSkill, setNovaSkill] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleAddSkill = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,19 +50,40 @@ const PublicarVaga: React.FC = () => {
     setSkills(skills.filter(skill => skill !== skillToRemove));
   };
 
-  const handleGerarMatching = () => {
-    const dadosVaga = {
+  const handleGerarMatching = async () => {
+    setError(null);
+
+    if (titulo.trim().length < 2) {
+      setError('Informe um título de vaga válido.');
+      return;
+    }
+    if (skills.length === 0) {
+      setError('Adicione ao menos uma skill para gerar o matching.');
+      return;
+    }
+
+    const request = buildMatchRequest({
       titulo,
       descricao,
       nivel,
       modalidade,
       regiao,
       skills,
-      diversidade: { antiVies, destacarGrupos },
-      prioridadeDiversidade
-    };
-    console.log('Gerando Matching para a vaga:', dadosVaga);
-    alert('Buscando candidatos ideais com base nos critérios...');
+      antiVies,
+      destacarGrupos,
+      prioridadeDiversidade,
+    });
+
+    setIsLoading(true);
+    try {
+      const response = await requestMatch(request);
+      saveMatchSession({ request, response });
+      history.push('/resultados');
+    } catch (requestError) {
+      setError(requestError instanceof Error ? requestError.message : 'Não foi possível gerar o matching.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -203,6 +231,7 @@ const PublicarVaga: React.FC = () => {
                     </label>
                     <div className="select-wrapper-vaga">
                       <select value={regiao} onChange={(e) => setRegiao(e.target.value)} className="select-vaga-native">
+                        <option value="Grande Florianópolis">Grande Florianópolis</option>
                         <option value="Sudeste">Sudeste</option>
                         <option value="Sul">Sul</option>
                         <option value="Nordeste">Nordeste</option>
@@ -240,9 +269,16 @@ const PublicarVaga: React.FC = () => {
               </div>
 
               {}
+              {error && <div className="matching-error" role="alert">{error}</div>}
               <div className="form-actions-footer">
-                <button type="button" onClick={handleGerarMatching} className="btn-gerar-matching">
-                  <IonIcon icon={sparklesOutline} /> Gerar Matching
+                <button
+                  type="button"
+                  onClick={handleGerarMatching}
+                  className="btn-gerar-matching"
+                  disabled={isLoading}
+                >
+                  <IonIcon icon={sparklesOutline} />
+                  {isLoading ? 'Buscando talentos...' : 'Gerar Matching'}
                 </button>
               </div>
 
