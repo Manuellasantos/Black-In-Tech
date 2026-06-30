@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { IonIcon } from '@ionic/react';
-import { filterOutline, chevronDownOutline, chatbubbleOutline, personOutline } from 'ionicons/icons';
+import { filterOutline, chatbubbleOutline, personOutline } from 'ionicons/icons';
 import Layout from '../components/Layout';
 import './Resultados.css';
 
