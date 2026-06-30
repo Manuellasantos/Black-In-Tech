@@ -1,59 +1,15 @@
-.suporte-content {
-    --background: #f8fafc;
-    margin-left: 260px;
-    width: calc(100% - 260px);
-}
-
 .suporte-container {
-    padding: 20px 40px 40px 40px;
+    padding: 0;
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 0 auto;
     width: 100%;
-}
-
-.suporte-header-top {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px 0;
-}
-
-.suporte-header-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #061D42;
-    margin: 0;
-}
-
-.title-yellow {
-    color: #FBC84A;
-}
-
-.suporte-header-actions {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.header-icon-btn {
-    background: none;
-    border: none;
-    font-size: 22px;
-    color: #171A23;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 0;
+    max-width: 1600px;
 }
 
 .search-box-container {
     width: 100%;
-    max-width: 1200px;
     position: relative;
     margin-bottom: 24px;
 }
@@ -63,7 +19,7 @@
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 14px 16px;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
     background-color: #ffffff;
 }
@@ -79,10 +35,9 @@
 
 .suporte-grid {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: 1.3fr 1fr;
     gap: 24px;
     width: 100%;
-    max-width: 1200px;
 }
 
 .suporte-col-left {
@@ -93,7 +48,7 @@
 
 .suporte-row-top {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.4fr 1fr;
     gap: 24px;
 }
 
@@ -110,7 +65,7 @@
     gap: 12px;
     color: #061D42;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 20px;
     margin-bottom: 20px;
     margin-top: 0;
 }
@@ -124,7 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 21px;
 }
 
 .faq-list {
@@ -140,7 +95,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .faq-list li a {
@@ -157,14 +112,14 @@
 }
 
 .ia-title {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
     color: #061D42;
     margin: 0;
 }
 
 .ia-text {
-    font-size: 12px;
+    font-size: 13px;
     color: #64748b;
     margin: 10px 0 15px 0;
 }
@@ -176,7 +131,7 @@
     padding: 8px 16px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 15px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -203,14 +158,14 @@
 
 .canal-item h3 {
     margin: 0;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     color: #061D42;
 }
 
 .canal-item p {
     margin: 2px 0 0 0;
-    font-size: 12px;
+    font-size: 13px;
     color: #475569;
 }
 
@@ -222,7 +177,7 @@
 
 .field-label-suporte {
     font-weight: 700;
-    font-size: 13px;
+    font-size: 16px;
     color: #061D42;
     margin-bottom: 6px;
     display: block;
@@ -233,7 +188,7 @@
     border: 1px solid #e2e8f0;
     border-radius: 8px;
     padding: 12px 16px;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
 }
 
@@ -248,6 +203,8 @@
     background-repeat: no-repeat;
     background-position: right 12px center;
     background-size: 14px;
+    background-color: #fafafa;
+    color: #696969;
 }
 
 .form-actions-suporte {
@@ -260,11 +217,11 @@
     background-color: #FBC84A;
     color: #061D42;
     border: none;
-    width: 100%;
+    width: 60%;
     padding: 12px;
     border-radius: 8px;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
