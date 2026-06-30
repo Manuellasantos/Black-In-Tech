@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { IonPage, IonContent, IonIcon } from '@ionic/react';
+import { IonIcon } from '@ionic/react';
 import { filterOutline, chevronDownOutline, chatbubbleOutline, personOutline } from 'ionicons/icons';
-import Sidebar from '../components/Sidebar';
+import Layout from '../components/Layout';
 import './Resultados.css';
 
 interface Candidato {
@@ -85,19 +85,14 @@ const Resultados: React.FC = () => {
   };
 
   return (
-    <IonPage>
-      <div className="main-layout">
-        <Sidebar />
+    <Layout titulo="Resultados">
 
-        <IonContent className="resultados-content">
           <div className="resultados-container">
             
-            <header className="header-resultados">
-              <h1 className="titulo-resultados">Resultados</h1>
-              <p className="contador-candidatos">
-                <IonIcon icon={personOutline} /> {candidatosFiltrados.length} candidatos encontrados
-              </p>
-            </header>
+            <div className="contador-candidatos">
+              <IonIcon icon={personOutline} /> 
+              {candidatosFiltrados.length} candidatos encontrados
+            </div>
 
             <div className="filtros-panel">
               <div className="filtro-info-vaga">
@@ -217,9 +212,8 @@ const Resultados: React.FC = () => {
             </div>
 
           </div>
-        </IonContent>
-      </div>
-    </IonPage>
+
+    </Layout>
   );
 };
 
