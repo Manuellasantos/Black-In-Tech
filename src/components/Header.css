@@ -1,6 +1,6 @@
 .header {
     height: 120px;
-    background-color: white;
+    background-color: var(--card-color);
     display: flex;
     align-items:center;
     justify-content: space-between;
@@ -73,7 +73,7 @@
     top: 38px;
     right: -3px;
     width: 280px;
-    background: white;
+    background: var(--card-color);
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     padding: 16px;

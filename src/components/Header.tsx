@@ -1,8 +1,10 @@
 import "./Header.css";
 import { useState, useRef, useEffect } from "react";
 import { IonIcon } from "@ionic/react";
-import { languageOutline, sunnyOutline, notificationsOutline } from "ionicons/icons";
+import { languageOutline, notificationsOutline, moonOutline } from "ionicons/icons";
 
+
+{/*usar no modo escuro o ícone sunnyOutline*/}
 interface HeaderProps {
     titulo: string;
 }
@@ -79,7 +81,7 @@ const Header = ({ titulo }: HeaderProps) => {
                 />
                 {/*Tema dark/light*/}
                 <IonIcon
-                    icon={sunnyOutline}
+                    icon={moonOutline}
                     className="header-icon"
                 />
                 <div
