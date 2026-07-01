@@ -1,4 +1,4 @@
-import { FiTrendingDown, FiTrendingUp } from "react-icons/fi";
+import { FiActivity, FiAward, FiLayers, FiTrendingDown, FiTrendingUp, FiCompass, FiEye } from "react-icons/fi";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import Layout from "../components/Layout";
 import mapaBrasil from "../assets/mapa/brasil.svg";
@@ -147,7 +147,10 @@ const Insights: React.FC = () => {
                 <div className="insights-left">
 
                     <div className="insight-card">
-                        <h3>Metas ESG</h3>
+                        <h3 className="section-title">
+                            <FiAward className="section-icon" />
+                            Metas ESG
+                        </h3>
 
                         <div className="meta-info">
                             <span className="meta-label">
@@ -172,7 +175,10 @@ const Insights: React.FC = () => {
                     </div>
 
                     <div className="insight-card">
-                        <h3>Evolução da Diversidade</h3>
+                        <h3 className="section-title">
+                            <FiActivity className="section-icon" />
+                            Evolução da Diversidade
+                        </h3>
 
                         <div className="grafico-container">
                             <ResponsiveContainer width="100%" height={240}>
@@ -199,7 +205,10 @@ const Insights: React.FC = () => {
                     </div>
 
                     <div className="insight-card">
-                        <h3>Distribuição por Região</h3>
+                        <h3 className="section-title">
+                            <FiLayers className="section-icon"/>
+                            Distribuição por Região
+                        </h3>
 
                         <div className="regioes-container">
 
@@ -234,32 +243,38 @@ const Insights: React.FC = () => {
                 <div className="insights-right">
                     <div className="insight-card">
                         <div className="mapa-card">
-                            <h3>Mapa de Concentração de Talentos</h3>
+                            <h3 className="section-title">
+                                <FiCompass className="section-icon"/>
+                                Mapa de Concentração de Talentos
+                            </h3>
 
                             <div className="mapa-container">
+                                <div className="mapa-wrapper">
+                                    <img
+                                        src={mapaBrasil}
+                                        alt="Mapa do Brasil"
+                                        className="mapa-brasil"
+                                    />
 
-                                <img
-                                    src={mapaBrasil}
-                                    alt="Mapa do Brasil"
-                                    className="mapa-brasil"
-                                />
-
-                                {concentracaoTalentos.map((item) => (
-                                    <div
-                                        key={item.regiao}
-                                        className={`badge-regiao ${item.regiao.toLowerCase()}`}
-                                    >
-                                        {item.percentual}%
-                                    </div>
-                                ))}
-
+                                    {concentracaoTalentos.map((item) => (
+                                        <div
+                                            key={item.regiao}
+                                            className={`badge-regiao ${item.regiao.toLowerCase()}`}
+                                        >
+                                            {item.percentual}%
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
 
                     </div>
 
                     <div className="insight-card">
-                        <h3>Insights Gerados</h3>
+                        <h3 className="section-title">
+                            <FiEye className="section-icon"/>
+                            Insights Gerados
+                        </h3>
 
                         <ul className="lista-insights">
                             {insights.map((insight, index) => (

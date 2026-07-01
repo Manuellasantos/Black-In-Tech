@@ -1,6 +1,8 @@
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Cell } from "recharts";
 import Layout from "../components/Layout";
 import "./Dashboard.css";
+import { FiBarChart2, FiBriefcase, FiChevronRight, FiClock, FiZap } from "react-icons/fi";
+import { HiOutlineLightBulb } from "react-icons/hi";
 
 const Dashboard = () => {
 
@@ -80,7 +82,10 @@ const Dashboard = () => {
             <div className="dashboard-middle">
 
                 <div className="dashboard-card">
-                    <h3>Gráfico de Diversidade</h3>
+                    <h3 className="section-title">
+                        <FiBarChart2 className="section-icon" />
+                        Gráfico de Diversidade
+                    </h3>
 
                     <div className="grafico-dashboard">
                         <ResponsiveContainer
@@ -89,8 +94,8 @@ const Dashboard = () => {
                         >
                             <BarChart data={dashboard.diversidade}>
                                 <XAxis dataKey="categoria" />
-                                <YAxis hide/>
-                                <Tooltip 
+                                <YAxis hide />
+                                <Tooltip
                                     formatter={(value) => [`${value} candidatos`, "Quantidade"]}
                                 />
 
@@ -99,7 +104,7 @@ const Dashboard = () => {
                                     radius={[4, 4, 0, 0]}
                                 >
                                     {/* Revisar Cell deprecated no futuro. */}
-                                    <Cell fill="#061D42" /> 
+                                    <Cell fill="#061D42" />
                                     <Cell fill="#8B1E5A" />
                                     <Cell fill="#6B8E00" />
                                     <Cell fill="#FF3131" />
@@ -112,12 +117,16 @@ const Dashboard = () => {
                 </div>
 
                 <div className="dashboard-card">
-                    <h3>Últimas Vagas Publicadas</h3>
+                    <h3 className="section-title">
+                        <FiBriefcase className="section-icon" />
+                        Últimas Vagas Publicadas
+                    </h3>
 
                     <ul className="lista-vagas">
                         {dashboard.vagas.map((vaga, index) => (
                             <li key={index}>
-                                ▶ {vaga}
+                                <FiChevronRight className="item-icon" />
+                                {vaga}
                             </li>
                         ))}
                     </ul>
@@ -127,24 +136,32 @@ const Dashboard = () => {
             <div className="dashboard-bottom">
 
                 <div className="dashboard-card">
-                    <h3>Atividade Recente</h3>
+                    <h3 className="section-title">
+                        <FiClock className="section-icon" />
+                        Atividade Recente
+                    </h3>
 
                     <ul className="lista-atividades">
                         {dashboard.atividades.map((atividade, index) => (
                             <li key={index}>
-                                ▶ {atividade}
+                                <FiChevronRight className="item-icon" />
+                                {atividade}
                             </li>
                         ))}
                     </ul>
                 </div>
 
                 <div className="dashboard-card">
-                    <h3>Insights Rápidos</h3>
+                    <h3 className="section-title">
+                        <FiZap className="section-icon" />
+                        Insights Rápidos
+                    </h3>
 
-                    <ul className="lista-insights-rapidos">
+                    <ul className="lista-insights-rapidos" id="insights-rapidos">
                         {dashboard.insightsRapidos.map((insight, index) => (
                             <li key={index}>
-                                💡 {insight}
+                                <HiOutlineLightBulb className="item-icon" />
+                                {insight}
                             </li>
                         ))}
                     </ul>

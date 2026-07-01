@@ -154,10 +154,13 @@
 /* Mapa Dinâmico */
 
 .mapa-container {
-    position: relative;
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+.mapa-wrapper {
+    position: relative;
+    width: fit-content;
 }
 .mapa-brasil {
     max-width: 100%;
