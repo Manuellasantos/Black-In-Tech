@@ -104,12 +104,12 @@ const Dashboard = () => {
                                     radius={[4, 4, 0, 0]}
                                 >
                                     {/* Revisar Cell deprecated no futuro. */}
-                                    <Cell fill="#061D42" />
-                                    <Cell fill="#8B1E5A" />
+                                    <Cell fill="#FCBB1A" />
+                                    <Cell fill="#171A23" />
                                     <Cell fill="#6B8E00" />
-                                    <Cell fill="#FF3131" />
-                                    <Cell fill="#FBC84A" />
-                                    <Cell fill="#0c2f7a" />
+                                    <Cell fill="#001F5B" />
+                                    <Cell fill="#76AC6E" />
+                                    <Cell fill="#237568" />
                                 </Bar>
                             </BarChart>
                         </ResponsiveContainer>
