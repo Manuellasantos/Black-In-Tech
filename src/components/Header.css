@@ -39,3 +39,79 @@
 .header-icon:hover {
     transform: scale(1.1);
 }
+
+/* WRAPPER DO SINO */
+
+.notification-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secondary-color);
+    color: var(--titulo-pag);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/*Dropdown*/
+.notification-container {
+    position: relative;
+}
+
+.notifications-dropdown {
+    position: absolute;
+    top: 38px;
+    right: -3px;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    padding: 16px;
+    z-index: 1000;
+}
+.notifications-dropdown h4 {
+    margin: 0 0 12px 0;
+    color: var(--titulo-pag);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+}
+.notification-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #292929;
+    font-size: 15px;
+
+}
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    flex-shrink: 0;
+}
+.notification-item:hover {
+    background-color: #f8fafc;
+}
