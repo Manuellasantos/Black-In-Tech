@@ -1,8 +1,7 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import { IonContent, IonIcon, IonPage } from '@ionic/react';
+import React, { useMemo, useState } from 'react';
+import { IonIcon } from '@ionic/react';
 import { NavLink } from 'react-router-dom';
 import { chatbubbleOutline, filterOutline, personOutline } from 'ionicons/icons';
-import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import { loadMatchSession } from '../services/matchSession';
 import type { CandidatoMatch } from '../types/match';
