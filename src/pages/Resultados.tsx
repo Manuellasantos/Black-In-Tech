@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { IonContent, IonIcon, IonPage } from '@ionic/react';
 import { NavLink } from 'react-router-dom';
 import { chatbubbleOutline, filterOutline, personOutline } from 'ionicons/icons';
 import Sidebar from '../components/Sidebar';
+import Layout from '../components/Layout';
 import { loadMatchSession } from '../services/matchSession';
 import type { CandidatoMatch } from '../types/match';
 import './Resultados.css';
@@ -85,11 +86,8 @@ const Resultados: React.FC = () => {
   const bestCandidateId = candidatos[0]?.candidato_id;
 
   return (
-    <IonPage>
-      <div className="main-layout">
-        <Sidebar />
+    <Layout titulo="Resultados">
 
-        <IonContent className="resultados-content">
           <div className="resultados-container">
             <header className="header-resultados">
               <h1 className="titulo-resultados">Resultados</h1>
@@ -207,9 +205,8 @@ const Resultados: React.FC = () => {
               )}
             </div>
           </div>
-        </IonContent>
-      </div>
-    </IonPage>
+
+    </Layout>
   );
 };
 

@@ -179,6 +179,7 @@
 .metas-card {
     display: flex;
     flex-direction: column;
+    gap: 14px;
 }
 
 .metas-card hr {

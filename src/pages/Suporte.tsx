@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonPage, IonContent, IonIcon } from '@ionic/react';
+import { IonIcon } from '@ionic/react';
 import { 
   helpCircleOutline, 
   chevronForwardOutline, 
@@ -11,13 +11,10 @@ import {
   timeOutline, 
   documentTextOutline, 
   sendOutline,
-  languageOutline,
-  sunnyOutline,
-  notificationsOutline,
   searchOutline,
   chatboxOutline
 } from 'ionicons/icons';
-import Sidebar from '../components/Sidebar';
+import Layout from '../components/Layout';
 import './Suporte.css';
 
 const Suporte: React.FC = () => {
@@ -32,24 +29,9 @@ const Suporte: React.FC = () => {
   };
 
   return (
-    <IonPage>
-      <div className="main-layout">
-        <Sidebar />
+    <Layout titulo="Suporte">
 
-        <IonContent className="suporte-content">
           <div className="suporte-container">
-            
-            <header className="suporte-header-top">
-              <h1 className="suporte-header-title">
-                <span className="title-yellow">Su</span>porte
-              </h1>
-              
-              <div className="suporte-header-actions">
-                <button className="header-icon-btn"><IonIcon icon={languageOutline} /></button>
-                <button className="header-icon-btn"><IonIcon icon={sunnyOutline} /></button>
-                <button className="header-icon-btn"><IonIcon icon={notificationsOutline} /></button>
-              </div>
-            </header>
 
             <div className="search-box-container">
               <input 
@@ -86,7 +68,7 @@ const Suporte: React.FC = () => {
                       <div className="icon-wrapper ia-icon"><IonIcon icon={chatbubbleEllipsesOutline} /></div>
                       <h2 className="ia-title">Assistente IA</h2>
                     </div>
-                    <p className="ia-text">Tire dúvidas sobre a plataforma em tempo real.</p>
+                    <p className="ia-text">Tire dúvidas sobre a plataforma <br/> em tempo real.</p>
                     <button className="btn-iniciar-conversa">
                       <IonIcon icon={chatboxOutline} /> Iniciar Conversa
                     </button>
@@ -188,10 +170,11 @@ const Suporte: React.FC = () => {
             </div>
 
           </div>
-        </IonContent>
-      </div>
-    </IonPage>
+
+    </Layout>
+
   );
+
 };
 
 export default Suporte;

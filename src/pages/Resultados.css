@@ -10,15 +10,8 @@
 }
 
 .resultados-container {
-    padding: 40px;
+    padding: 0;
     font-family: 'Inter', sans-serif;
-}
-
-.titulo-resultados {
-    color: #061D42;
-    font-size: 32px;
-    font-weight: 700;
-    margin: 0 0 6px 0;
 }
 
 .contador-candidatos {
@@ -85,7 +78,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px 40px;
     color: #334155;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .select-custom {
@@ -93,7 +86,7 @@
     border: 1px solid #cbd5e1;
     border-radius: 8px;
     background: #ffffff;
-    font-size: 14px;
+    font-size: 15px;
     color: #334155;
     outline: none;
     cursor: pointer;
@@ -112,7 +105,7 @@
     border: 1px solid #e2e8f0;
     padding: 10px 18px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 15px;
     color: #334155;
     display: flex;
     align-items: center;
@@ -125,7 +118,7 @@
     border: 1px solid #cbd5e1;
     padding: 10px 18px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 15px;
     color: #334155;
     margin-left: auto; /* Empurra para o canto direito */
     display: flex;
@@ -164,7 +157,7 @@
     left: 20px;
     background: #fef3c7;
     color: #b45309;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
     padding: 4px 12px;
     border-radius: 20px;
@@ -193,7 +186,7 @@
 
 .candidato-detalhes h3 {
     margin: 0 0 4px 0;
-    font-size: 18px;
+    font-size: 19px;
     color: #061D42;
     font-weight: 700;
 }
@@ -230,7 +223,7 @@
 
 .diversidade-tag {
     margin: 0 0 6px 0;
-    font-size: 13px;
+    font-size: 14px;
     color: #059669;
     font-weight: 500;
 }
@@ -240,7 +233,7 @@
 }
 
 .skills-tags {
-    font-size: 13px;
+    font-size: 14px;
     color: #64748b;
 }
 
@@ -331,10 +324,10 @@
     background-color: #FBC84A; 
     color: #061D42; 
     border: none;
-    padding: 10px;
+    padding: 12px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -346,10 +339,10 @@
 .btn-contato {
     background-color: #061D42; 
     border: none;
-    padding: 10px;
+    padding: 12px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;

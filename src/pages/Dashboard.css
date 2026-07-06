@@ -24,6 +24,7 @@
 
 .metric-card p {
     margin-top: 8px;
+    margin-bottom: 0;
     font-size: 20px;
     text-align: center;
 }
@@ -62,20 +63,14 @@
 
 .dashboard-card h3 {
     margin-top: 0;
-    text-align: center;
-    color: #171a23;
+    color: #061D42;
     font-size: 20px;
     font-weight: 600;
 }
 
 .lista-vagas {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
+    margin-top: 20px;
     color: #333;
-    list-style: none;
     padding: 0;
 }
 
@@ -94,10 +89,24 @@
     margin-top: 20px;
 }
 
+.lista-vagas li,
 .lista-atividades li,
 .lista-insights-rapidos li {
     margin-bottom: 14px;
     font-size: 16px;
     color: #374151;
     line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+#insights-rapidos li {
+    gap: 8px;
+}
+
+.item-icon {
+    color: #061D42;
+    font-size: 20px;
+    flex-shrink: 0;
 }
