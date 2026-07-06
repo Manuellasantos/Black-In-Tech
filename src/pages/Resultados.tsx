@@ -1,73 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import { IonIcon } from '@ionic/react';
-import { filterOutline, chatbubbleOutline, personOutline } from 'ionicons/icons';
+import React, { useMemo, useState, useEffect } from 'react';
+import { IonContent, IonIcon, IonPage } from '@ionic/react';
+import { NavLink } from 'react-router-dom';
+import { chatbubbleOutline, filterOutline, personOutline } from 'ionicons/icons';
+import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
+import { loadMatchSession } from '../services/matchSession';
+import type { CandidatoMatch } from '../types/match';
 import './Resultados.css';
 
-interface Candidato {
-  id: number;
-  nome: string;
-  cargo: string;
-  compatibilidade: number;
-  skills: string[];
-  regiao: string;
-  nivel: string;
-  diversidade: string;
-  destaque?: boolean;
-}
-
 const Resultados: React.FC = () => {
-  // Adicionado propriedades reais de filtro em cada candidato para simular o comportamento
-  const candidatosIniciais: Candidato[] = [
-    { id: 1, nome: "Ana Silva", cargo: "Front-end Developer", compatibilidade: 95, skills: ["React", "TypeScript", "CSS"], regiao: "Sudeste", nivel: "Júnior", diversidade: "Mulheres", destaque: true },
-    { id: 2, nome: "Carlos Souza", cargo: "Front-end Developer", compatibilidade: 89, skills: ["React", "Node.js", "JavaScript"], regiao: "Sul", nivel: "Pleno", diversidade: "Nenhuma" },
-    { id: 3, nome: "Fernando Almeida", cargo: "Front-end Developer", compatibilidade: 82, skills: ["React", "Node.js", "JavaScript"], regiao: "Nordeste", nivel: "Sênior", diversidade: "PCD" },
-    { id: 4, nome: "Gustavo Paiva", cargo: "Front-end Developer", compatibilidade: 77, skills: ["React", "CSS", "JavaScript"], regiao: "Centro-Oeste", nivel: "Júnior", diversidade: "Pretos/Pardos" },
-    { id: 5, nome: "Mariana Costa", cargo: "Front-end Developer", compatibilidade: 70, skills: ["React", "CSS", "JavaScript"], regiao: "Norte", nivel: "Pleno", diversidade: "Mulheres" },
-    { id: 6, nome: "Lucas Lima", cargo: "Front-end Developer", compatibilidade: 61, skills: ["React", "CSS", "JavaScript"], regiao: "Sudeste", nivel: "Júnior", diversidade: "Nenhuma" },
-    { id: 7, nome: "Patricia Reis", cargo: "Front-end Developer", compatibilidade: 50, skills: ["React", "CSS", "JavaScript"], regiao: "Sul", nivel: "Sênior", diversidade: "LGBTQIA+" },
-    { id: 8, nome: "Rodrigo Melo", cargo: "Front-end Developer", compatibilidade: 39, skills: ["React", "CSS", "JavaScript"], regiao: "Nordeste", nivel: "Júnior", diversidade: "Nenhuma" },
-    { id: 9, nome: "Aline Ramos", cargo: "Front-end Developer", compatibilidade: 25, skills: ["React", "CSS", "JavaScript"], regiao: "Sudeste", nivel: "Pleno", diversidade: "PCD" },
-  ];
-
-  // States para gerenciar os candidatos exibidos e os termos selecionados nos filtros
-  const [candidatosFiltrados, setCandidatosFiltrados] = useState<Candidato[]>(candidatosIniciais);
+  const [matchSession] = useState(loadMatchSession);
   const [ordenacao, setOrdenacao] = useState('score');
-  
   const [filtroRegiao, setFiltroRegiao] = useState('todos');
   const [filtroNivel, setFiltroNivel] = useState('todos');
   const [filtroSkill, setFiltroSkill] = useState('todos');
   const [filtroDiversidade, setFiltroDiversidade] = useState('todos');
 
-  // Efeito que roda e filtra a lista toda vez que qualquer filtro for alterado
-  useEffect(() => {
-    let resultado = [...candidatosIniciais];
+  const candidatos = useMemo(
+    () => matchSession?.response.candidatos ?? [],
+    [matchSession],
+  );
 
-    if (filtroRegiao !== 'todos') {
-      resultado = resultado.filter(c => c.regiao === filtroRegiao);
-    }
-    if (filtroNivel !== 'todos') {
-      resultado = resultado.filter(c => c.nivel === filtroNivel);
-    }
-    if (filtroDiversidade !== 'todos') {
-      resultado = resultado.filter(c => c.diversidade === filtroDiversidade);
-    }
-    if (filtroSkill !== 'todos') {
-      resultado = resultado.filter(c => c.skills.includes(filtroSkill));
-    }
+  const candidatosFiltrados = useMemo(() => {
+    const result = candidatos.filter((candidate) => {
+      const matchesRegion = filtroRegiao === 'todos' || candidate.regiao === filtroRegiao;
+      const matchesLevel = filtroNivel === 'todos' || candidate.nivel === filtroNivel;
+      const matchesSkill = filtroSkill === 'todos' || candidate.skills.includes(filtroSkill);
+      const matchesDiversity = filtroDiversidade === 'todos'
+        || candidate.badge_diversidade === filtroDiversidade;
+      return matchesRegion && matchesLevel && matchesSkill && matchesDiversity;
+    });
 
-    // Reaplica a ordenação ativa na lista filtrada
-    if (ordenacao === 'score') {
-      resultado.sort((a, b) => b.compatibilidade - a.compatibilidade);
-    } else if (ordenacao === 'nome') {
-      resultado.sort((a, b) => a.nome.localeCompare(b.nome));
-    }
+    return result.sort((first, second) => {
+      if (ordenacao === 'nome') {
+        return first.nome.localeCompare(second.nome);
+      }
+      return second.score_match - first.score_match;
+    });
+  }, [candidatos, filtroDiversidade, filtroNivel, filtroRegiao, filtroSkill, ordenacao]);
 
-    setCandidatosFiltrados(resultado);
-  }, [filtroRegiao, filtroNivel, filtroSkill, filtroDiversidade, ordenacao]);
+  const regioes = uniqueValues(candidatos, (candidate) => candidate.regiao);
+  const niveis = uniqueValues(candidatos, (candidate) => candidate.nivel);
+  const skills = [...new Set(candidatos.flatMap((candidate) => candidate.skills))].sort();
+  const diversityBadges = uniqueValues(
+    candidatos.filter((candidate) => candidate.badge_diversidade),
+    (candidate) => candidate.badge_diversidade ?? '',
+  );
 
-  const handleOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setOrdenacao(e.target.value);
+  const getScoreColor = (score: number) => {
+    if (score >= 80) return '#22c55e';
+    if (score >= 40) return '#f59e0b';
+    return '#ef4444';
   };
 
   const verPerfil = (nome: string) => {
@@ -78,126 +61,139 @@ const Resultados: React.FC = () => {
     alert(`Iniciando chat com: ${nome}`);
   };
 
-  const getScoreColor = (score: number) => {
-    if (score >= 80) return '#22c55e';
-    if (score >= 40) return '#f59e0b';
-    return '#ef4444';
-  };
+  if (!matchSession) {
+    return (
+      <IonPage>
+        <div className="main-layout">
+          <Sidebar />
+          <IonContent className="resultados-content">
+            <div className="resultados-container">
+              <h1 className="titulo-resultados">Resultados</h1>
+              <div className="resultados-empty-state">
+                <IonIcon icon={personOutline} />
+                <h2>Nenhum matching executado</h2>
+                <p>Publique uma vaga para gerar sua primeira shortlist de talentos.</p>
+                <NavLink to="/publicar-vaga">Publicar uma vaga</NavLink>
+              </div>
+            </div>
+          </IonContent>
+        </div>
+      </IonPage>
+    );
+  }
+
+  const metrics = matchSession.response.diversidade_resultado;
+  const bestCandidateId = candidatos[0]?.candidato_id;
 
   return (
     <Layout titulo="Resultados">
 
           <div className="resultados-container">
-            
-            <div className="contador-candidatos">
-              <IonIcon icon={personOutline} /> 
-              {candidatosFiltrados.length} candidatos encontrados
-            </div>
+            <header className="header-resultados">
+              <h1 className="titulo-resultados">Resultados</h1>
+              <p className="contador-candidatos">
+                <IonIcon icon={personOutline} /> {candidatosFiltrados.length} candidatos encontrados
+              </p>
+            </header>
+
+            <section className="metricas-matching" aria-label="Métricas do matching">
+              <div><strong>{matchSession.response.total_analisados}</strong><span>Total analisados</span></div>
+              <div><strong>{metrics.total_shortlist}</strong><span>Na shortlist</span></div>
+              <div><strong>{metrics.candidatos_com_badge}</strong><span>Com badge</span></div>
+              <div><strong>{metrics.percentual_representacao}%</strong><span>Representação</span></div>
+              <div className={metrics.meta_atingida ? 'meta-atingida' : 'meta-pendente'}>
+                <strong>{metrics.meta_atingida ? 'Sim' : 'Não'}</strong>
+                <span>Meta atingida</span>
+              </div>
+            </section>
 
             <div className="filtros-panel">
               <div className="filtro-info-vaga">
-                <div><strong>Vaga:</strong> Desenvolvedor Front-end</div>
-                <div><strong>Região Atual:</strong> {filtroRegiao === 'todos' ? 'Todas' : filtroRegiao}</div>
-                <div><strong>Filtro Skill:</strong> {filtroSkill === 'todos' ? 'Todas' : filtroSkill}</div>
-                <div><strong>Nível Atual:</strong> {filtroNivel === 'todos' ? 'Todos' : filtroNivel}</div>
+                <div><strong>Vaga:</strong> {matchSession.request.vaga.titulo}</div>
+                <div><strong>Região:</strong> {matchSession.request.vaga.regiao}</div>
+                <div><strong>Skills:</strong> {matchSession.request.vaga.skills.join(', ')}</div>
+                <div><strong>Nível:</strong> {matchSession.request.vaga.nivel}</div>
               </div>
-              
+
               <div className="ordenar-box">
-                <label>Ordenar por:</label>
-                <select value={ordenacao} onChange={handleOrderChange} className="select-custom">
+                <label htmlFor="ordenacao">Ordenar por:</label>
+                <select
+                  id="ordenacao"
+                  value={ordenacao}
+                  onChange={(event) => setOrdenacao(event.target.value)}
+                  className="select-custom"
+                >
                   <option value="score">Score de Compatibilidade</option>
                   <option value="nome">Nome do Candidato</option>
                 </select>
               </div>
             </div>
 
-            {/* Nova linha de botões seletores interativos */}
             <div className="filtros-rapidos-row">
-              <div className="filter-select-wrapper">
-                <select value={filtroRegiao} onChange={(e) => setFiltroRegiao(e.target.value)} className="btn-filter-selector">
-                  <option value="todos">Região (Todas)</option>
-                  <option value="Norte">Norte</option>
-                  <option value="Nordeste">Nordeste</option>
-                  <option value="Centro-Oeste">Centro-Oeste</option>
-                  <option value="Sudeste">Sudeste</option>
-                  <option value="Sul">Sul</option>
-                </select>
-                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
-              </div>
-
-              <div className="filter-select-wrapper">
-                <select value={filtroNivel} onChange={(e) => setFiltroNivel(e.target.value)} className="btn-filter-selector">
-                  <option value="todos">Nível (Todos)</option>
-                  <option value="Júnior">Iniciante / Júnior</option>
-                  <option value="Pleno">Intermediário / Pleno</option>
-                  <option value="Sênior">Avançado / Sênior</option>
-                </select>
-                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
-              </div>
-
-              <div className="filter-select-wrapper">
-                <select value={filtroSkill} onChange={(e) => setFiltroSkill(e.target.value)} className="btn-filter-selector">
-                  <option value="todos">Skills (Todas)</option>
-                  <option value="React">React</option>
-                  <option value="TypeScript">TypeScript</option>
-                  <option value="Node.js">Node.js</option>
-                  <option value="CSS">CSS</option>
-                  <option value="JavaScript">JavaScript</option>
-                </select>
-                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
-              </div>
-
-              <div className="filter-select-wrapper">
-                <select value={filtroDiversidade} onChange={(e) => setFiltroDiversidade(e.target.value)} className="btn-filter-selector">
-                  <option value="todos">Diversidade (Todas)</option>
-                  <option value="Mulheres">Mulheres</option>
-                  <option value="PCD">PCD</option>
-                  <option value="Pretos/Pardos">Pretos / Pardos</option>
-                  <option value="LGBTQIA+">LGBTQIA+</option>
-                </select>
-                {/* <IonIcon icon={chevronDownOutline} className="select-arrow" /> */}
-              </div>
-
+              <FilterSelect label="Região" value={filtroRegiao} onChange={setFiltroRegiao} options={regioes} />
+              <FilterSelect label="Nível" value={filtroNivel} onChange={setFiltroNivel} options={niveis} />
+              <FilterSelect label="Skills" value={filtroSkill} onChange={setFiltroSkill} options={skills} />
+              <FilterSelect
+                label="Diversidade"
+                value={filtroDiversidade}
+                onChange={setFiltroDiversidade}
+                options={diversityBadges}
+              />
               <button className="btn-filter-main" onClick={() => alert('Abrindo painel avançado...')}>
                 <IonIcon icon={filterOutline} /> Mais filtros
               </button>
             </div>
 
             <div className="candidatos-grid">
-              {candidatosFiltrados.map((candidato) => (
-                <div 
-                  key={candidato.id} 
-                  className={`candidato-card ${candidato.destaque ? 'card-destaque' : ''}`}
-                  style={{ borderColor: candidato.compatibilidade <= 25 ? '#ef4444' : undefined }}
+              {candidatosFiltrados.map((candidate) => (
+                <div
+                  key={candidate.candidato_id}
+                  className={`candidato-card ${candidate.candidato_id === bestCandidateId ? 'card-destaque' : ''}`}
+                  style={{ borderColor: candidate.score_match <= 25 ? '#ef4444' : undefined }}
                 >
-                  {candidato.destaque && <span className="badge-destaque">🏆 Melhor compatibilidade</span>}
+                  {candidate.candidato_id === bestCandidateId && (
+                    <span className="badge-destaque">🏆 Melhor compatibilidade</span>
+                  )}
 
                   <div className="card-top-info">
                     <div className="avatar-placeholder">
                       <IonIcon icon={personOutline} />
                     </div>
-                    
+
                     <div className="candidato-detalhes">
-                      <h3>{candidato.nome}</h3>
-                      <p className="cargo-text">{candidato.cargo} • {candidato.regiao}</p>
+                      <h3>{candidate.nome}</h3>
+                      <p className="cargo-text">{candidate.cargo} • {candidate.regiao}</p>
                     </div>
 
-                    <div className="compatibilidade-badge" style={{ color: getScoreColor(candidato.compatibilidade) }}>
-                      <span className="porcentagem">{candidato.compatibilidade}%</span>
+                    <div className="compatibilidade-badge" style={{ color: getScoreColor(candidate.score_match) }}>
+                      <span className="porcentagem">{candidate.score_match}%</span>
                       <span className="status-text">Compatível</span>
                     </div>
                   </div>
 
                   <div className="skills-section">
-                    <p className="diversidade-tag">Diversidade: {candidato.diversidade}</p>
-                    <div className="skills-tags">
-                      {candidato.skills.join('  •  ')}
-                    </div>
+                    <p className={`diversidade-tag ${candidate.badge_diversidade ? '' : 'sem-badge'}`}>
+                      {candidate.badge_diversidade ?? 'Badge não declarado'}
+                    </p>
+                    <div className="skills-tags">{candidate.skills.join('  •  ')}</div>
                   </div>
 
+                  <details className="score-details">
+                    <summary>Por que este score?</summary>
+                    <div className="score-breakdown">
+                      <span>Skills <strong>{candidate.score_breakdown.skills}/60</strong></span>
+                      <span>Senioridade <strong>{candidate.score_breakdown.senioridade}/20</strong></span>
+                      <span>Região/modalidade <strong>{candidate.score_breakdown.regiao_modalidade}/15</strong></span>
+                      <span>Disponibilidade <strong>{candidate.score_breakdown.disponibilidade}/5</strong></span>
+                    </div>
+                    <ul>
+                      {candidate.explicacoes.map((explanation) => <li key={explanation}>{explanation}</li>)}
+                    </ul>
+                  </details>
+
                   <div className="card-actions">
-                    <button className="btn-ver-perfil" onClick={() => verPerfil(candidato.nome)}>Ver Perfil</button>
-                    <button className="btn-contato" onClick={() => iniciarContato(candidato.nome)}>
+                    <button className="btn-ver-perfil" onClick={() => verPerfil(candidate.nome)}>Ver Perfil</button>
+                    <button className="btn-contato" onClick={() => iniciarContato(candidate.nome)}>
                       <IonIcon icon={chatbubbleOutline} /> Contato
                     </button>
                   </div>
@@ -205,16 +201,41 @@ const Resultados: React.FC = () => {
               ))}
 
               {candidatosFiltrados.length === 0 && (
-                <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '40px', color: '#64748b' }}>
-                  Nenhum candidato corresponde aos filtros selecionados.
-                </div>
+                <div className="sem-resultados-filtro">Nenhum candidato corresponde aos filtros selecionados.</div>
               )}
             </div>
-
           </div>
 
     </Layout>
   );
 };
+
+interface FilterSelectProps {
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (value: string) => void;
+}
+
+const FilterSelect = ({ label, value, options, onChange }: FilterSelectProps) => (
+  <div className="filter-select-wrapper">
+    <select
+      aria-label={label}
+      value={value}
+      onChange={(event) => onChange(event.target.value)}
+      className="btn-filter-selector"
+    >
+      <option value="todos">{label} (Todos)</option>
+      {options.map((option) => <option key={option} value={option}>{option}</option>)}
+    </select>
+  </div>
+);
+
+function uniqueValues(
+  candidates: CandidatoMatch[],
+  selector: (candidate: CandidatoMatch) => string,
+): string[] {
+  return [...new Set(candidates.map(selector).filter(Boolean))].sort();
+}
 
 export default Resultados;

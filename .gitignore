@@ -11,6 +11,16 @@
 # production
 /dist
 
+# Python backend
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+backend/.env
+backend/.coverage
+backend/htmlcov/
+
 # misc
 .DS_Store
 .env.local
