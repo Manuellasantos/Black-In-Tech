@@ -76,7 +76,7 @@ const Login: React.FC = () => {
               Google
             </button>
 
-            <a href="#" className="footer-link">Não tem conta? Cadastre sua empresa</a>
+            <a href="/cadastro" className="footer-link">Não tem conta? Cadastre sua empresa</a>
           </div>
 
         </div>

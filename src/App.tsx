@@ -8,6 +8,7 @@ import Resultados from './pages/Resultados';
 import Insights from './pages/Insights';
 import Perfil from './pages/Perfil';
 import Suporte from './pages/Suporte';
+import CadastroEmpresa from './pages/CadastroEmpresa';
 
 
 /* Core CSS required for Ionic components to work properly */
@@ -49,6 +50,10 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         <Route exact path="/login">
           <Login />
+        </Route>
+
+        <Route exact path="/cadastro">
+          <CadastroEmpresa />
         </Route>
 
         <Route exact path="/dashboard">
