@@ -160,3 +160,37 @@
         padding: 16px;
     }
 }
+
+@media (max-width: 480px) {
+
+    .metric-card {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .metric-card h2 {
+        font-size: 20px;
+    }
+
+    .metric-card p {
+        font-size: 16px;
+    }
+
+    .dashboard-card {
+        padding: 14px;
+    }
+
+    .dashboard-card h3 {
+        font-size: 18px;
+    }
+
+      .grafico-dashboard {
+        overflow-x: auto;
+    }
+
+    .lista-vagas li,
+    .lista-atividades li,
+    .lista-insights-rapidos li {
+        font-size: 14px;
+    }
+}
