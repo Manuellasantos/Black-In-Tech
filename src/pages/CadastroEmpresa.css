@@ -1,0 +1,104 @@
+ion-content {
+    --background: #061D42;
+}
+
+.cadastro-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    padding: 20px 0;
+}
+
+.cadastro-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #ffffff;
+}
+
+.logo-app {
+    width: 100px;
+    height: auto;
+    margin: 0 auto 24px auto;
+    display: block;
+    object-fit: contain;
+}
+
+.cadastro-container h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+}
+
+.subtitle {
+    font-size: 13px;
+    color: #d1d5db;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.input-group-animated {
+    position: relative;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.input-group-animated input {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: #ffffff;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #000000;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group-animated input:focus {
+    border-color: #FBC84A;
+}
+
+.input-group-animated label {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #061D42;
+    font-size: 15px;
+    font-weight: 500;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.input-group-animated input:focus ~ label,
+.input-group-animated input:not(:placeholder-shown) ~ label {
+    top: -18px;
+    left: 8px;
+    transform: translateY(0) scale(0.85);
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #FBC84A;
+    color: #061D42;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #e5b43b;
+}
