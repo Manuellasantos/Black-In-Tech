@@ -110,3 +110,53 @@
     font-size: 20px;
     flex-shrink: 0;
 }
+
+/*RESPONSIVIDADE*/
+
+@media (max-width: 1000px) {
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-middle {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-bottom {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-middle {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .metric-card {
+        height: auto;
+        min-height: 100px;
+        padding: 20px;
+    }
+
+    .metric-card h2 {
+        font-size: 22px;
+    }
+
+    .metric-card p {
+        font-size: 18px;
+    }
+
+    .dashboard-card {
+        padding: 16px;
+    }
+}
