@@ -5,7 +5,6 @@ import { FiBarChart2, FiBriefcase, FiChevronRight, FiClock, FiZap } from "react-
 import { HiOutlineLightBulb } from "react-icons/hi";
 
 const Dashboard = () => {
-
     const dashboard = {
         indicadores: [
             {

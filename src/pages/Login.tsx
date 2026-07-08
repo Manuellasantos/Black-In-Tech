@@ -8,7 +8,11 @@ const Login: React.FC = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Dados enviados:', email, password);
+
+    localStorage.setItem('logado', 'true');
+    localStorage.setItem('usuario', email);
+    
+    window.location.href = '/dashboard';
   };
 
   return (
