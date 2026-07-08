@@ -44,7 +44,8 @@
     font-weight: 500;
     opacity: 0.9;
 }
-.texto-tendencia{
+
+.texto-tendencia {
     color: white;
     font-size: 14px;
     line-height: 1.3;
@@ -112,11 +113,13 @@
     margin-top: 24px;
     margin-bottom: 12px;
 }
+
 .meta-label {
     font-size: 16px;
     font-weight: 600;
     color: #334155;
 }
+
 .meta-valor {
     font-size: 15px;
     color: #64748b;
@@ -144,7 +147,7 @@
 
 /* Gráfico Dinâmico */
 
-.grafico-container{
+.grafico-container {
     width: 100%;
     height: 260px;
     margin-top: 22px;
@@ -158,10 +161,12 @@
     justify-content: center;
     margin-top: 20px;
 }
+
 .mapa-wrapper {
     position: relative;
     width: fit-content;
 }
+
 .mapa-brasil {
     max-width: 100%;
     max-width: 450px;
@@ -176,7 +181,7 @@
     font-size: 14px;
     color: #333;
     font-weight: 600;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .norte {
@@ -212,13 +217,15 @@
     padding: 0;
     margin-top: 16px;
 }
+
 .lista-insights li {
     position: relative;
     padding-left: 22px;
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
     color: #334155;
     line-height: 1.4;
 }
+
 .lista-insights li::before {
     content: "✦";
     position: absolute;
@@ -269,4 +276,112 @@
     text-align: right;
     font-size: 14px;
     color: #64748B;
+}
+
+/*RESPONSIVIDADE*/
+
+@media (max-width: 1000px) {
+
+    .insights-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .insights-content {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 720px) {
+
+    .card-esg {
+        height: 140px;
+        padding: 12px;
+    }
+
+    .card-esg h2 {
+        font-size: 20px;
+        margin-bottom: 4px;
+    }
+
+    .card-esg p {
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .texto-tendencia {
+        font-size: 12px;
+    }
+
+    .icone-positivo,
+    .icone-negativo {
+        display: none;
+    }
+
+    .insight-card {
+        padding: 14px 14px 32px 14px;
+        gap: 16px;
+    }
+
+    .grafico-container {
+        margin-left: 0;
+        height: 240px;
+    }
+
+    .mapa-brasil {
+        max-width: 320px;
+    }
+
+    .badge-regiao {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .insights-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-card h3 {
+        font-size: 18px;
+    }
+
+    .card-esg {
+        max-width: 260px;
+        margin: 0 auto;
+    }
+
+    .grafico-container {
+        margin-left: 0;
+        height: 200px;
+    }
+
+    .regiao-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .regiao-nome {
+        width: 70px;
+        font-size: 12px;
+    }
+
+    .regiao-valor {
+        width: 30px;
+        font-size: 12px;
+    }
+
+    .meta-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
 }
