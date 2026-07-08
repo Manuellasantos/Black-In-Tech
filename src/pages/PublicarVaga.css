@@ -227,6 +227,10 @@
     cursor: pointer;
 }
 
+.checkbox-text {
+    flex: 1;
+}
+
 .checkbox-custom-label input[type="checkbox"] {
     width: 16px;
     height: 16px;
@@ -360,4 +364,31 @@
         width: 100%;
         justify-content: center;
     }
+}
+
+@media (max-width: 480px) {
+
+    .field-label {
+        font-size: 18px;
+        gap: 8px;
+    }
+
+    .icon-wrapper {
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .form-col {
+        gap: 20px;
+    }
+
+    .form-group {
+        gap: 6px;
+    }
+
+    .checkbox-custom-label {
+        font-size: 14px;
+    }
+
 }
