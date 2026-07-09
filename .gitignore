@@ -21,6 +21,10 @@ backend/.env
 backend/.coverage
 backend/htmlcov/
 
+# Python package metadata
+*.egg-info/
+
+
 # misc
 .DS_Store
 .env.local
