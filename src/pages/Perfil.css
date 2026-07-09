@@ -10,7 +10,7 @@
     color: black;
     border-radius: 12px;
     padding: 24px;
-    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
 }
 
 .perfil-card h3 {
@@ -57,7 +57,7 @@
 }
 
 /*Card Dados da Empresa*/
-.card-empresa{
+.card-empresa {
     border-top: 5px solid var(--secondary-color);
 }
 
@@ -76,8 +76,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
 }
+
 .empresa-logo img {
     width: 90px;
     height: auto;
@@ -88,11 +89,14 @@
     flex-direction: column;
     gap: 6px;
     padding-right: 24px;
-    border-right: 1px solid #E5E7EB; /*Linhas verticais de divisão*/
+    border-right: 1px solid #E5E7EB;
+    /*Linhas verticais de divisão*/
 }
+
 .empresa-item:last-child {
     border-right: none;
 }
+
 .empresa-item span {
     display: flex;
     align-items: center;
@@ -100,6 +104,7 @@
     font-size: 15px;
     color: var(--text-secondary);
 }
+
 .empresa-item p {
     margin: 0;
     font-weight: 600;
@@ -114,6 +119,7 @@
     color: var(--titulo-pag);
     font-weight: 600;
 }
+
 .section-icon {
     color: var(--secondary-color);
     font-size: 24px;
@@ -142,8 +148,9 @@
     height: 90px;
     border-radius: 50%;
     flex-shrink: 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
 }
+
 .responsavel-avatar img {
     width: 100%;
     height: 100%;
@@ -156,11 +163,14 @@
     flex-direction: column;
     gap: 6px;
     padding-right: 18px;
-    border-right: 1px solid #E5E7EB; /*Linhas verticais de divisão*/
+    border-right: 1px solid #E5E7EB;
+    /*Linhas verticais de divisão*/
 }
+
 .responsavel-item:last-of-type {
     border-right: none;
 }
+
 .responsavel-item span {
     display: flex;
     align-items: center;
@@ -169,6 +179,7 @@
     color: #64748B;
     font-size: 15px;
 }
+
 .responsavel-item p {
     margin: 0;
     font-weight: 600;
@@ -207,197 +218,298 @@
     font-size: 32px;
     flex-shrink: 0;
 }
+
 .meta-icone.amarelo {
     background: #FFF8E6;
     color: var(--secondary-color);
 }
+
 .meta-icone.azul {
     background: #EEF4FF;
     color: #4F7DFF;
 }
 
-.meta-info{
+.meta-info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
 }
+
 .meta-info span {
     color: #64748B;
     font-size: 14px;
 }
-.meta-valor{
+
+.meta-valor {
     margin: 6px 0 0;
     font-size: 32px;
     font-weight: 700;
 }
+
 .meta-valor.amarelo-dado {
     color: var(--secondary-color);
 }
+
 .meta-valor.azul-dado {
     color: #4F7DFF;
 }
 
 /*Card Plano da Plataforma*/
-.plano-card{
+.plano-card {
     /* padding: 24px 0; */
     overflow: hidden;
 }
 
 /* ---------- Cabeçalho ---------- */
 
-.plano-header{
+.plano-header {
     background: var(--primary-color);
     color: white;
     padding: 20px 28px;
     margin-top: 24px;
 }
-.plano-header-info{
-    display:flex;
-    align-items:center;
-    gap:16px;
+
+.plano-header-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
-.plano-star{
+.plano-star {
     color: var(--secondary-color);
-    font-size:26px;
-    flex-shrink:0;
+    font-size: 26px;
+    flex-shrink: 0;
 }
 
-.plano-label{
-    display:block;
-    color:#CBD5E1;
-    font-size:14px;
-    margin-bottom:4px;
+.plano-label {
+    display: block;
+    color: #CBD5E1;
+    font-size: 14px;
+    margin-bottom: 4px;
 }
 
-.plano-header h4{
-    margin:0;
-    font-size:24px;
-    font-weight:600;
-    color:white;
+.plano-header h4 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
 }
 
 /* ---------- Corpo ---------- */
 
-.plano-content{
-    display:grid;
+.plano-content {
+    display: grid;
     grid-template-columns: 1fr 1fr 0.9fr;
-    gap:28px;
-    padding:28px;
+    gap: 28px;
+    padding: 28px;
 }
 
 /* ---------- Colunas ---------- */
 
-.plano-coluna{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    min-height:280px;
+.plano-coluna {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
 }
 
-.plano-coluna:not(:last-child){
-    border-right:1px solid #E5E7EB;
-    padding-right:24px;
+.plano-coluna:not(:last-child) {
+    border-right: 1px solid #E5E7EB;
+    padding-right: 24px;
 }
 
 /* ---------- Benefícios ---------- */
 
-.beneficios{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
+.beneficios {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-.beneficio-item{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.beneficio-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.beneficio-item span{
-    font-size:17px;
-    color:var(--titulo-pag);
+.beneficio-item span {
+    font-size: 17px;
+    color: var(--titulo-pag);
 }
 
-.beneficio-icon{
-    color:#22C55E;
-    font-size:22px;
+.beneficio-icon {
+    color: #22C55E;
+    font-size: 22px;
 }
 
 /* ---------- Informações ---------- */
 
-.info-item{
-    margin-bottom:28px;
+.info-item {
+    margin-bottom: 28px;
 }
 
-.info-item:last-child{
-    margin-bottom:0;
+.info-item:last-child {
+    margin-bottom: 0;
 }
 
-.info-item span{
-    display:block;
-    color:#64748B;
-    font-size:17px;
-    margin-bottom:6px;
+.info-item span {
+    display: block;
+    color: #64748B;
+    font-size: 17px;
+    margin-bottom: 6px;
 }
 
-.info-item p{
-    margin:0;
-    font-size:18px;
-    font-weight:600;
-    color:var(--titulo-pag);
+.info-item p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--titulo-pag);
 }
 
 /* ---------- Divider ---------- */
 
-.plano-divider{
-    border:none;
-    border-top:1px solid #E5E7EB;
-    margin:4px 0 20px;
+.plano-divider {
+    border: none;
+    border-top: 1px solid #E5E7EB;
+    margin: 4px 0 20px;
 }
 
 /* ---------- Status ---------- */
 
-.status-box{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    margin-bottom:28px;
+.status-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
 }
 
-.status-box span{
-    color:#64748B;
-    font-size:14px;
+.status-box span {
+    color: #64748B;
+    font-size: 14px;
 }
 
-.status-ativo{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    width:fit-content;
-    background:#ECFDF5;
-    color:#16A34A;
-    padding:8px 16px;
-    border-radius:999px;
-    font-weight:600;
-    font-size:15px;
+.status-ativo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    background: #ECFDF5;
+    color: #16A34A;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 15px;
 }
 
-.status-dot{
-    width:10px;
-    height:10px;
-    border-radius:50%;
-    background:#22C55E;
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #22C55E;
 }
 
 /* ---------- Botões ---------- */
 
-.btn-plano{
-    width:190px;
-    height:46px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
+.btn-plano {
+    width: 190px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/*RESPONSIVIDADE*/
+
+@media (max-width: 720px) {
+
+    .empresa-info,
+    .responsavel-info {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .perfil-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plano-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .plano-coluna:not(:last-child) {
+        border-right: none;
+        padding-right: 0;
+        border-bottom: 1px solid #E5E7EB;
+        padding-bottom: 20px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .empresa-info,
+    .responsavel-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 18px;
+    }
+
+    .empresa-item,
+    .responsavel-item {
+        border-right: none;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .empresa-item span,
+    .responsavel-item span {
+        justify-content: center;
+    }
+
+    .meta-icone {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .meta-valor {
+        font-size: 24px;
+    }
+
+    .meta-item {
+        gap: 12px;
+    }
+
+    .plano-header h4 {
+        font-size: 18px;
+    }
+
+    .beneficio-item span {
+        font-size: 15px;
+    }
+
+    .info-item p {
+        font-size: 16px;
+    }
+
+    .info-item span {
+        font-size: 14px;
+    }
+
+    .btn-salvar {
+        width: 100%;
+    }
+
+    .btn-plano {
+        width: 100%;
+    }
+
+    .perfil-card {
+        padding: 18px;
+    }
+
 }
