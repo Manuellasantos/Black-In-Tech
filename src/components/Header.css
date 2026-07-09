@@ -115,3 +115,31 @@
 .notification-item:hover {
     background-color: #f8fafc;
 }
+
+/*RESPONSIVIDADE*/
+
+@media (max-width: 480px) {
+
+    .header {
+        height: 90px;
+        padding: 0 16px;
+    }
+
+    .header-title {
+        font-size: 22px;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+
+    .header-icon {
+        font-size: 18px;
+    }
+
+    .notification-badge {
+        width: 16px;
+        height: 16px;
+        font-size: 9px;
+    }
+}

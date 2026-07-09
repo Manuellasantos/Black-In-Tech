@@ -92,10 +92,13 @@ const Dashboard = () => {
                             height={240}
                         >
                             <BarChart data={dashboard.diversidade}>
-                                <XAxis dataKey="categoria" />
+                                <XAxis dataKey="categoria" hide />
                                 <YAxis hide />
                                 <Tooltip
-                                    formatter={(value) => [`${value} candidatos`, "Quantidade"]}
+                                    formatter={(value, name, props) => [
+                                        `${value} candidatos`, 
+                                        props?.payload?.categoria
+                                    ]}
                                 />
 
                                 <Bar

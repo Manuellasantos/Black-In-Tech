@@ -33,19 +33,23 @@ const Sidebar = () => {
                 { }
                 <div className="nav-group">
                     <NavLink to="/dashboard">
-                        <FiGrid className="sidebar-icon" /> Dashboard
+                        <FiGrid className="sidebar-icon" /> 
+                        <span>Dashboard</span>
                     </NavLink>
 
                     <NavLink to="/publicar-vaga">
-                        <FiBriefcase className="sidebar-icon" /> Publicar Vaga
+                        <FiBriefcase className="sidebar-icon" /> 
+                        <span>Publicar Vaga</span>
                     </NavLink>
 
                     <NavLink to="/resultados">
-                        <FiBarChart2 className="sidebar-icon" /> Resultados
+                        <FiBarChart2 className="sidebar-icon" /> 
+                        <span>Resultados</span>
                     </NavLink>
 
                     <NavLink to="/insights">
-                        <FiTrendingUp className="sidebar-icon" /> Insights ESG
+                        <FiTrendingUp className="sidebar-icon" /> 
+                        <span>Insights ESG</span>
                     </NavLink>
                 </div>
 
@@ -55,11 +59,13 @@ const Sidebar = () => {
                 { }
                 <div className="nav-group">
                     <NavLink to="/perfil">
-                        <FiUser className="sidebar-icon" /> Perfil
+                        <FiUser className="sidebar-icon" /> 
+                        <span>Perfil</span>
                     </NavLink>
 
                     <NavLink to="/suporte">
-                        <FiHelpCircle className="sidebar-icon" /> Suporte
+                        <FiHelpCircle className="sidebar-icon" /> 
+                        <span>Suporte</span>
                     </NavLink>
                 </div>
                 <hr className="sidebar-divider" />
@@ -69,7 +75,7 @@ const Sidebar = () => {
                     onClick={handleLogout}
                 >
                     <FiLogOut className="sidebar-icon" />
-                    Sair
+                    <span>Sair</span>
                 </button>
             </nav>
         </aside>

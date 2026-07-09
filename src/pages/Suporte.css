@@ -236,3 +236,37 @@
     gap: 8px;
     cursor: pointer;
 }
+
+/*RESPONSIVIDADE*/
+
+@media (max-width: 720px) {
+
+    .suporte-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .suporte-row-top {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .canais-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .suporte-card {
+        padding: 18px;
+    }
+
+    .suporte-card-title {
+        font-size: 18px;
+    }
+
+    .btn-enviar-solicitacao {
+        width: 100%;
+    }
+
+}
