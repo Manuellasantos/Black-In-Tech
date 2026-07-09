@@ -126,6 +126,35 @@
 
 /*RESPONSIVIDADE*/
 
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 90px;
+        padding: 16px 8px;
+    }
+
+    .sidebar-logo {
+        display: none;
+    }
+
+    .sidebar-nav a {
+        justify-content: center;
+        padding: 14px 8px;
+    }
+
+    .sidebar-nav a span {
+        display: none;
+    }
+
+    .logout-button span {
+        display: none;
+    }
+
+    .logout-button {
+        justify-content: center;
+    }
+}
+
 @media (max-width: 480px) {
 
     .sidebar {
