@@ -1,7 +1,7 @@
 import type { MatchRequest, MatchResponse } from '../types/match';
 
 // URL da sua API na Render (se o seu backend usar o prefixo /api, mude para 'https://black-in-tech.onrender.com/api')
-const DEFAULT_API_URL = 'https://black-in-tech.onrender.com';
+const DEFAULT_API_URL = 'https://black-in-tech.onrender.com/api/v1';
 
 export class ApiError extends Error {
   constructor(
