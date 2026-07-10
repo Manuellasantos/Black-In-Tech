@@ -20,6 +20,7 @@ openapi_tags = [
         "description": "Concentração regional de talentos e fonte dos dados apresentados.",
     },
 ]
+
 app = FastAPI(
     title=settings.app_name,
     version="0.1.0",
@@ -32,12 +33,20 @@ app = FastAPI(
     redoc_url="/redoc",
     openapi_url="/openapi.json",
 )
+
+# Configuração do CORS liberando explicitamente o link da Vercel de vocês
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.allowed_origins,
+    allow_origins=[
+        "https://app-bit-hack.vercel.app", 
+        "http://localhost:3000",            
+        "http://127.0.0.1:3000",            
+        "*"                                 
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 app.include_router(api_router, prefix="/api/v1")
 app.include_router(api_router, include_in_schema=False)
