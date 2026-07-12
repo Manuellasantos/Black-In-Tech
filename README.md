@@ -1,6 +1,4 @@
-# 🚀 App BiT - Black In Tech
-
-# 🚀 App BiT - Black In Tech
+# 🚀 App BiT
 
 ![Ionic](https://img.shields.io/badge/Ionic-React-3880FF?logo=ionic&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
@@ -82,23 +80,23 @@ O App BiT oferece uma plataforma que:
 
 ### Dashboard
 
-![Dashboard](docs/images/dashboard.jpg)
+![Dashboard](docs/images/dashboard.JPG)
 
 ### Publicar Vaga
 
-![Publicar Vaga](docs/images/publicar.jpg)
+![Publicar Vaga](docs/images/publicar.JPG)
 
 ### Matching Inteligente
 
-![Matching](docs/images/matching.jpg)
+![Matching](docs/images/matching.JPG)
 
 ### Insights ESG
 
-![Insights ESG](docs/images/insights.jpg)
+![Insights ESG](docs/images/insights.JPG)
 
 ### Versão Mobile
 
-![Mobile](docs/images/mobile.jpg)
+![Mobile](docs/images/mobile.JPG)
 
 ---
 
