@@ -1,4 +1,4 @@
-# 🚀 App BiT
+# App BiT
 
 ![Ionic](https://img.shields.io/badge/Ionic-React-3880FF?logo=ionic&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=black)
@@ -9,84 +9,89 @@
 ![Render](https://img.shields.io/badge/Backend-Render-46E3B7)
 ![Hackathon](https://img.shields.io/badge/Wongola-Hackathon-orange)
 
-## 📌 Sobre o Projeto
+## Sobre o projeto
 
-O **App BiT** é uma plataforma B2B de Matching Inclusivo desenvolvida durante um Hackathon da Wongola 2026.
+O **App BiT** é uma plataforma de Matching Inclusivo desenvolvida durante o Hackathon Wongola 2026.
 
-A solução conecta empresas comprometidas com diversidade, inclusão e metas ESG a profissionais de grupos sub-representados, utilizando inteligência artificial e dados geográficos para tornar os processos seletivos mais inclusivos e eficientes.
+A proposta é conectar empresas a profissionais de grupos sub-representados, usando dados, inteligência artificial e informações geográficas para ajudar no processo de seleção.
 
----
+O projeto também apresenta indicadores relacionados a diversidade, inclusão e ESG.
 
-## 🎯 Problema
+## Problema
 
-Muitas empresas enfrentam desafios para:
+Durante um processo seletivo, as empresas podem ter dificuldade para:
 
-- Encontrar talentos qualificados de grupos sub-representados;
-- Reduzir vieses inconscientes nos processos seletivos;
-- Acompanhar indicadores relacionados à diversidade e inclusão;
-- Atender metas ESG de forma estratégica e baseada em dados.
+- Encontrar profissionais de grupos sub-representados;
+- Diminuir possíveis vieses no processo seletivo;
+- Acompanhar indicadores de diversidade e inclusão;
+- Analisar dados relacionados às suas metas de ESG.
 
----
+## Solução
 
-## 💡 Solução
+O App BiT reúne essas informações em uma plataforma onde a empresa pode:
 
-O App BiT oferece uma plataforma que:
+- Cadastrar e publicar vagas;
+- Definir requisitos e habilidades;
+- Receber recomendações de candidatos;
+- Visualizar um ranking de compatibilidade;
+- Consultar indicadores de diversidade;
+- Visualizar a concentração de talentos por região;
+- Acompanhar informações relacionadas a ESG.
 
-- Conecta empresas a talentos diversos;
-- Utiliza IA para gerar recomendações de candidatos;
-- Exibe concentração de talentos por região;
-- Disponibiliza indicadores e insights ESG;
-- Auxilia empresas na construção de equipes mais inclusivas.
+## Funcionalidades
 
----
+### Autenticação
 
-## ✨ Funcionalidades
-
-### 🔐 Autenticação
 - Login empresarial
 - Cadastro de empresa
 
-### 📊 Dashboard
-- Indicadores estratégicos
-- Visualização de dados
-- Gráficos de Diversidade
+### Dashboard
 
-### 💼 Publicação de Vagas
+- Indicadores
+- Gráficos de diversidade
+- Visualização dos dados
+
+### Publicação de vagas
+
 - Cadastro de oportunidades
-- Definição de requisitos e habilidades
+- Definição de requisitos
+- Definição de habilidades
 - Critérios de inclusão
 
-### 🤖 Matching Inteligente
-- Recomendação automática de candidatos
-- Ranking de compatibilidade
-- Classificação por aderência à vaga
+### Matching
 
-### 📈 Insights ESG
+- Recomendação de candidatos
+- Ranking de compatibilidade
+- Classificação de candidatos de acordo com a vaga
+
+### Insights ESG
+
 - Indicadores de diversidade
 - Métricas de inclusão
-- Apoio à tomada de decisão
+- Informações para apoio à tomada de decisão
 - Mapa de concentração de talentos
 
-### 👤 Perfil da Empresa
-- Gerenciamento de informações
+### Perfil da empresa
+
+- Alteração de informações
 - Configurações da conta
 
-### 🎧 Suporte
+### Suporte
+
 - Canal de atendimento
 - Abertura de chamados
 
-
-## 📸 Screenshots
+## Screenshots
 
 ### Dashboard
 
 ![Dashboard](docs/images/dashboard.JPG)
 
-### Publicar Vaga
+### Publicar vaga
 
 ![Publicar Vaga](docs/images/publicar.JPG)
 
-### Matching Inteligente
+### Matching
 
 ![Matching](docs/images/matching.JPG)
 
@@ -94,108 +99,94 @@ O App BiT oferece uma plataforma que:
 
 ![Insights ESG](docs/images/insights.JPG)
 
-### Versão Mobile
+### Versão mobile
 
 ![Mobile](docs/images/mobile.JPG)
 
----
-
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias utilizadas
 
 ### Frontend
+
 - Ionic React
 - React
 - TypeScript
 - CSS
 
 ### Backend
+
 - FastAPI
 - Python
 
 ### Ferramentas
+
 - Git
 - GitHub
 - Vercel
 - Render
 - Figma
 
----
-
-## 🏗️ Arquitetura
+## Arquitetura
 
 ```text
 Frontend (Ionic React)
-        │
-        ▼
+        |
+        v
 API REST (FastAPI)
-        │
-        ▼
+        |
+        v
 Motor de Matching e Insights
 ```
 
----
-
-## 🌐 Deploy
+## Deploy
 
 ### Frontend
 
-https://app-bit-hack.vercel.app
+[App BiT](https://app-bit-hack.vercel.app)
 
 ### Backend
 
-#### API
+[API](https://black-in-tech.onrender.com)
 
-https://black-in-tech.onrender.com
+[Swagger](https://black-in-tech.onrender.com/docs)
 
-#### Swagger
-
-https://black-in-tech.onrender.com/docs
-
----
-
-## 👥 Equipe
+## Equipe
 
 | Integrante | Função |
-|------------|---------|
-| Daissa | Front-End Developer/Design Grafico
+|---|---|
+| Daissa | Front-End Developer / Design Gráfico |
 | Manuella Santos | Data Analyst / Front-End Developer |
 | Jadson Sousa Mattos | Full Stack Developer |
 
----
-
-## 📱 Telas Desenvolvidas
+## Telas desenvolvidas
 
 - Login
-- Cadastro de Empresa
+- Cadastro de empresa
 - Dashboard
-- Publicar Vaga
+- Publicar vaga
 - Resultados de Matching
 - Insights ESG
 - Perfil
 - Suporte
 
----
-
-## 🚀 Como Executar Localmente
+## Como executar localmente
 
 ### Frontend
-
-Inicie o frontend em outro terminal:
 
 ```bash
 cp .env.example .env.local
 npm install
 npm run dev
 ```
-O frontend usa `VITE_API_URL`, com fallback local para `http://localhost:8000`. Ao gerar o matching, a resposta fica na sessão do navegador e alimenta a tela `/resultados`, inclusive após atualizar a página.
+
+O frontend utiliza a variável `VITE_API_URL` para definir o endereço da API. Caso ela não seja configurada, é utilizado `http://localhost:8000`.
+
+Após gerar o matching, o resultado fica salvo na sessão do navegador e é utilizado na tela de resultados, inclusive depois de atualizar a página.
 
 ### Backend
 
-A API FastAPI do MVP está em [`backend/`](./backend/). Consulte [`backend/README.md`](./backend/README.md) para configurar o ambiente, executar os testes e conhecer os contratos de `/match` e `/insights`.
+A API FastAPI está localizada na pasta `backend/`.
 
-## Execução integrada
-
-Inicie o backend em um terminal:
+Para configurar o ambiente:
 
 ```bash
 cd backend
@@ -205,22 +196,42 @@ python -m pip install -e '.[dev]'
 cp .env.example .env
 uvicorn app.main:app --reload
 ```
----
 
-## 🎥 Demonstração
+Mais informações sobre a configuração, testes e endpoints podem ser encontradas no [README do backend](./backend/README.md).
 
-Veja o vídeo de apresentação do projeto:
+## Execução integrada
 
-https://youtu.be/kecfVl9KGLk?si=Eax3pLsHiRZ0gsAl
+Para utilizar o projeto completo, primeiro inicie o backend:
 
----
+```bash
+cd backend
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[dev]'
+cp .env.example .env
+uvicorn app.main:app --reload
+```
 
-## 🏆 Hackathon Wongola 2026
+Depois, em outro terminal, execute o frontend:
 
-Projeto desenvolvido como solução para o desafio de Matching Inclusivo, com foco em Diversidade, Inclusão e ESG, conectando empresas e profissionais por meio de tecnologia e análise de dados.
+```bash
+cp .env.example .env.local
+npm install
+npm run dev
+```
 
----
+## Demonstração
 
-## 📄 Licença
+Vídeo de apresentação do projeto:
 
-Projeto desenvolvido para fins educacionais e de participação em Hackathon.
+[Assistir à demonstração](https://youtu.be/kecfVl9KGLk?si=Eax3pLsHiRZ0gsAl)
+
+## Hackathon Wongola 2026
+
+O App BiT foi desenvolvido para o desafio de **Matching Inclusivo** do Hackathon Wongola 2026.
+
+O projeto tem como foco o uso de tecnologia e análise de dados para trabalhar questões relacionadas a diversidade, inclusão e ESG.
+
+## Licença
+
+Projeto desenvolvido para fins educacionais e para participação no Hackathon Wongola 2026.
